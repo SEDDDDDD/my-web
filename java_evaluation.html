@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>programming Language</title>
+        <link rel="stylesheet" href="./project/prolang.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link
+            rel="preconnect"
+            href="https://fonts.gstatic.com"
+            crossorigin="crossorigin">
+        <link
+            href="https://fonts.googleapis.com/css2?family=Gothic+A1&display=swap"
+            rel="stylesheet">
+        <link rel="stylesheet" href="./prolang.css">
+        <style>
+            * {
+                font-family: 'Gothic A1', sans-serif;
+            }
+        </style>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"
+            integrity="sha512-cdV6j5t5o24hkSciVrb8Ki6FveC2SgwGfLE31+ZQRHAeSRxYhAQskLkq3dLm8ZcWe1N3vBOEYmmbhzf7NTtFFQ=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"></script>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/ScrollToPlugin.min.js"
+            integrity="sha512-kSI9CgGh60rJbNVeMJvfNX0UTKAq8LEOea/yKJQbFpIroxT7bf9/zUFXbnfsQP5F6xlOOHtCfBPgsE1ceiHnRw=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"></script>
+    </head>
+
+    <body>
+        <div id="goto-top">
+            <div class="material-icons">
+                <arrow_upward></div>
+            </div>
+            <script>
+                const gotoTopEl = document.querySelector('#goto-top')
+                window.addEventListener('scroll', function () {
+                    if (window.scrollY > 500) {
+                        gsap.to(gotoTopEl, .2, {x: 0})
+                    } else {
+                        gsap.to(gotoTopEl, .2, {x: 100})
+                    }
+                }, 300)
+                gotoTopEl.addEventListener('click', function () {
+                    gsap.to(window, .7, {scrollTo: 0})
+                })
+            </script>
+            <header class="mainName">
+                Programming Language</header>
+            <hr>
+            <div class="navi">
+                <div>
+                    <button type="button" onclick="location.href='python.html'">1. Python
+                    </button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
+                    <button type="button" onclick="location.href='java.html'">2. Java
+                    </button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
+                    <button type="button" onclick="location.href='c.html'">3. C
+                    </button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </div>
+            </div>
+            <hr>
+
+            <div style="text-align:center">
+                <img
+                    style="height:120px"
+                    ;=";"
+                    src="https://w.namu.la/s/95f3898eb4996f6ba5a3930b212b295da56e062e9427da87331a510d3d868bd81f24d10d242ca0d93f4ad94053b9321549cb4590ea815a8d39ba92cde1a7da44d81aad1e130f082f0c4045b9019d274dd0f8200a823cbf25efc4ff399c5d4de2">
+            </div>
+            <div
+                style="border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: .9rem;
+            margin-bottom: 1em;
+            padding: 3px 3px 3px 5px;">상위문서 :
+                <a href="java.html">Java</a>
+            </div>
+            <nav class="mainDisplay">
+                <section
+                    style="flex:10%;
+                        background-color: white;
+                        padding: 10px;
+                        ">
+
+                    <h2 id="main">목차</h2>
+                    <div class="list"><br>
+                        <span>
+                            <a href="#s1">1.</a>&nbsp;개요</span>
+                        <br><br>
+                        <span>
+                            <a href="#s2">2.</a>&nbsp;긍정적 평가
+                            <ul>
+                                <a href="#s2-1">2.1.</a>&nbsp;수많은 개발자와 레퍼런스</ul>
+                            <ul>
+                                <a href="#s2-2">2.2.</a>&nbsp;타 언어 대비 높은 생산성</ul>
+                            <ul>
+                                <a href="#s2-3">2.3.</a>&nbsp;기기 호환성</ul>
+                            <ul>
+                                <a href="#s2-4">2.4.</a>&nbsp;안정성</ul>
+                            <ul>
+                                <a href="#s2-5">2.5.</a>&nbsp;소스코드 가독성</ul>
+                        </span>
+
+                        <br><br>
+                        <span>
+                            <a href="#s3">3.</a>&nbsp;부정적 평가
+                            <ul>
+                                <a href="#s3-1">3.1.</a>&nbsp;JVM 로딩 속도 문제
+                                <ul>
+                                    <a href="#s3-1-1">3.1.1.</a>&nbsp;가상 머신 바이트코드 실행 속도 문제</ul>
+                                <ul>
+                                    <a href="#s3--1-2">3.1.2.</a>&nbsp;가비지 컬렉션에 의한 실행 지연 문제</ul>
+                                <ul>
+                                    <a href="#s3-1-3">3.1.3.</a>&nbsp;반복 가능한 객체</ul>
+                            </ul>
+                            <ul>
+                                <a href="#s3-2">3.2.</a>&nbsp;불편한 예외 처리</ul>
+                            <ul>
+                                <a href="#s3-3">3.3.</a>&nbsp;소스 코드 길이</ul>
+                            <ul>
+                                <a href="#s3-4">3.4.</a>&nbsp;언어적 불편함
+                                <ul>
+                                    <a href="#s3-4-1">3.4.1.</a>&nbsp;명사형 사고를 강제</ul>
+                                <ul>
+                                    <a href="#s3-4-2">3.4.2.</a>&nbsp;클로저 미지원</ul>
+                                <ul>
+                                    <a href="#s3-4-3">3.4.3.</a>&nbsp;문자열 비교가 상대적으로 불편함</ul>
+                            </ul>
+                            <ul>
+                                <a href="#s3-5">3.5.</a>&nbsp;마이크로서비스 / 서버리스에 적합하지 않음</ul>
+                        </span>
+                    </div>
+                </section>
+                <article class="center">
+                    <div id="s1">
+                        <br>
+                        <strong class="Sname">
+                            <a href="#main">1.</a>
+                            개요</strong><br>
+                        <hr>
+                        <p>
+                            <a
+                                href="https://namu.wiki/w/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D%20%EC%96%B8%EC%96%B4">프로그래밍 언어</a>
+                            <a href="https://namu.wiki/w/Java">Java</a>의 평가에 관해 정리한 문서이다.
+                        </p>
+                        <div id="s2">
+                            <br>
+                            <strong class="Sname">
+                                <a href="#main">2.</a>
+                                긍정적 평가</strong><br>
+                            <hr>
+                            <div id="s2-1">
+                                <br>
+                                <strong class="Sname">
+                                    <a href="#main">&nbsp;&nbsp;2.1</a>
+                                    수많은 개발자와 레퍼런스</strong><br>
+                                <hr>
+                                <p>
+                                    나온지도 오래 되었고, 다른 최신 언어에 비해서 여러가지로 욕을 먹는 Java가 그래도 항상 상위권을 유지하는 이유는 바로 수많은 개발자와
+                                    레퍼런스를 보유하고 있다는 점이다. 타 언어를 전문적으로 사용하는 개발자들도 Java 정도는 할 줄 안다고 할 정도로 배우기 쉽고 대중적이다.
+                                    대중적인 언어라서 참고 자료나 오픈 소스가 많고, 그러한 자료들을 바탕으로 수많은 대형 프로젝트들이 진행되어왔기 때문에 많은 부분에서 안정성이
+                                    입증되었다. 즉, 안정적인 인력풀을 유지하면서, 알려진 위협을 제거하고 운영 노하우가 많은 검증된 언어라는 것.
+                                </p>
+                                <p>
+                                    하지만 검증되었다는 건 반대로 말하자면 오래되었다는 뜻이기도 하다. 최근에는 Java에 대한 개발자들의 불만이 누적된 탓인지
+                                    <a href="https://namu.wiki/w/JavaScript">JavaScript</a>나
+                                    <a href="python.html">Python</a>
+                                    같은 다른 언어를 선호하는 경향이 강하다. 국내에서는
+                                    <a
+                                        href="https://namu.wiki/w/%EC%A0%84%EC%9E%90%EC%A0%95%EB%B6%80%ED%91%9C%EC%A4%80%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC">전자정부표준프레임워크</a>의
+                                    존재 때문인지 아직도 신규 프로젝트의 주 언어로 Java를 선호하는 경향이 강하지만, 세계적으로는 신규 프로젝트에서 Java를 선호하는 비중은
+                                    높지 않은 편이다.
+                                </p>
+                                <p>
+                                    국내에서의 언어 외적인 장점은 바로 개발자 구인의 용이성이다. 국내에서 Java 개발자의 인력풀이 타 언어보다 더 큰 이유는 앞서 말했던
+                                    전자정부표준프레임워크의 존재 때문이기도 하고, 그 때문에 Java 개발자를 정부에서 국비지원으로 대거 양성했기 때문이기도 하다. 상당수의 정부
+                                    하청 프로젝트가 Java와 전자정부표준프레임워크로 개발되었다. 이런 이유 때문에 굳이 정부 프로젝트가 아니더라도 Java 개발자를 구인하기
+                                    쉬웠고, 더 많은 프로젝트가 Java로 개발되었다. 그리고 그렇게 만들어진 프로젝트를 유지보수하기 위해서 더 많은 Java 개발자가 필요하므로
+                                    더 많은 인력이 유입되는 일종의 선순환 효과가 있다. 취업 사이트를 확인해보면 다른 분야보다 Java 개발자를 구인하는 경우가 많은 건 이
+                                    때문이다. 사람을 구하기도 쉽고, 직장을 구하기도 쉽다. 영어권 국가에 비해 공유되는 자료가 비교적 부족한 국내에서도
+                                    <a href="https://namu.wiki/w/JSP">JSP</a>,
+                                    <a
+                                        href="https://namu.wiki/w/Spring(%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC)">Spring</a>에 관한 자료만큼은 높은 퀄리티를 보여주는 경우가 많다. 그러나 반대로 할 줄 아는 사람들이 너무 많아 경쟁력이 떨어지는 면도 있다.
+                                    <a href="https://namu.wiki/w/SI">몇몇 회사</a>에서는 Java 개발자에 대한 보수나 기타 대우가 좋지 않은 경우도
+                                    많다. 개발자가 많다는 것은 취업이나 구인 면에서는 장점이지만, 다른 측면에서는 단점이 될 수도 있다.
+                                </p>
+                                <p>
+                                    기존의 Java로 만들어진 프로젝트를 재사용하기 위해 Java가 쓰인 대표적인 사례는 카카오뱅크가 있다. 한정된 시간 때문에 Java 코드를
+                                    재사용해야 했던 경우다.<a style="color:green" href="https://byline.network/2017/08/8-2/">#</a>
+                                </p>
+                            </div>
+                            <div id="s2-2">
+                                <br>
+                                <strong class="Sname">
+                                    <a href="#main">&nbsp;&nbsp;2.2</a>
+                                    타 언어 대비 높은 생산성</strong><br>
+                                <hr>
+                                <p>
+                                    1990년대 말~2000년대 초를 기준으로 프로그램의 덩치와 다루는 것들이 크고 복잡해지면서 생산성과 퍼포먼스 문제가 생기게 되었는데,
+                                    C/C++ 같은 언어는 생산성이 너무 떨어지고 관리도 힘들어서 프로그램이 커지면 커질수록 작업이 힘들어지게 된다. 그리고 아무리 컴퓨터
+                                    하드웨어가 발달한다고 해도 성능이 더 좋아지면 점점 더 복잡한 것을 다루고, 그것이 새로운 표준이 되면서 하드웨어의 속도 향상이 무색해지기
+                                    때문이다.
+                                </p>
+                                <p>
+                                    그런데, 그 와중에 나타난 게 바로 Java다. C/C++와 비슷한 문법으로 진입 장벽도 낮고, 객체 지향을 적극적으로 사용하며, 로우 레벨
+                                    작업들을 자동으로 처리해 주는 하이 레벨 언어이면서, 퍼포먼스도 다른 하이 레벨 언어들에 비해 빠른 편이다. 거기에 호환성까지! 등장하자마자
+                                    순식간에 대세가 된 것도 무리는 아니다. 객체지향 등이 일반화되면서 프로그래밍 환경도 점차 중요한 개념을 언어 안으로 숨기고 사 용자에겐 그것을
+                                    간편히 다룰 수 있는 인터페이스만 제공하는 추세로 흘러가고 있는데, Java는 여기에 정확하게 부합하는 언어였던 것.
+                                </p>
+                                <p>
+                                    다만 이러한 Java의 상대적으로 높은 생산성이라는 장점도 옛날 이야기가 되었고, 2020년대에 인기를 끌고 있는
+                                    <a href="python.html">Python</a>이나
+                                    <a
+                                        href="https://namu.wiki/w/Go(%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D%20%EC%96%B8%EC%96%B4)">Go</a>
+                                    같은 언어에 비하면 Java의 생산성은 상대적으로 낮은 편이다. Python과 비교해보면 Java의 기본 라이브러리 설계는 정말 열악한 부분이
+                                    많으며, 기 본적인 메소드도 직접 정의해서 사용할것을 요구한다.
+                                </p>
+                            </div>
+                            <div id="s2-3">
+                                <br>
+                                <strong class="Sname">
+                                    <a href="#main">&nbsp;&nbsp;2.3</a>
+                                    기기 호환성</strong><br>
+                                <hr>
+                                <p
+                                    style="background: #eee;
+                                    border: 2px dashed #ccc;
+                                    border-left: 5px solid #71bc6d;
+                                    display: table;
+                                    margin: 1em 0;
+                                    padding: 1em;">
+                                    <strong>3 Billion Devices Run Java<br>
+                                        30억개 장치에서 Java 사용</strong><br>
+                                    -
+                                    <a href="https://namu.wiki/w/%EC%98%A4%EB%9D%BC%ED%81%B4(%EA%B8%B0%EC%97%85)">오라클</a>&nbsp;<a
+                                        href="https://namu.wiki/w/%EC%9E%90%EB%B0%94%20%EA%B0%80%EC%83%81%20%EB%A8%B8%EC%8B%A0">JVM</a>(JRE) 설치 시 등장하는 문구 -
+                                </p>
+                                <p>
+                                    장점으로는, 해당
+                                    <a href="https://namu.wiki/w/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C">운영체제</a>에
+                                    <a href="https://namu.wiki/w/Java%20Virtual%20Machine">Java Virtual Machine(JVM)</a>을 설치하면 Java로 만든 프로그램은 어떤 컴퓨터에서도 완벽히 똑같이 동작한다.
+                                    <a href="https://namu.wiki/w/%EA%B0%80%EC%83%81%EB%A8%B8%EC%8B%A0">가상머신</a>이 각각의
+                                    운영체제에 맞춰서 결과적으로 완벽히 똑같이 돌아갈 수 있도록 제작되는 덕. 가상머신 없는 운영체제라면 아예 Java 프로그램을 사용하지
+                                    못하겠지만, 썬 마이크로시스템즈는 주요 OS용의 가상 머신을 발표하고 있고,
+                                    <a href="https://namu.wiki/w/IBM">IBM</a>,
+                                    <a href="https://namu.wiki/w/%ED%9C%B4%EB%A0%9B%ED%8C%A9%EC%BB%A4%EB%93%9C">휴렛팩커드</a>
+                                    등의 회사는 직접 자사 운영체제용 JDK/JVM을 제작하여 발표하며, 이들과 상관없이 독립적으로 특화된 성능향상 기능을 가진 JVM을 만들어서
+                                    발표하는 회사도 존재한다. 그래서 이 부분은 보통 단점으로 꼽히지 않는다. 오히려 여러 운영체제에 발 벌리는 업체라면 윈도우용, 맥용 등을 따로
+                                    제작할 필요 따위가 없이 "그냥 하나 만들면 끝!"이라고 Java 초창기에 홍보되었다.
+                                </p>
+                                <p>
+                                    그러나 다른 크로스 플랫폼 언어들과 마찬가지로 각 플랫폼마다 미묘하게 기능이나 작동에 차이가 있는 부분이 결국은 존재하기 때문에, 이러한 부분을
+                                    고려하지 않고 작성된 프로그램을 그대로 다른 데에서 돌릴 때에 문제가 발생할 가능성이 존재한다. JVM의 장점은 그나마 이런 부분들이 다른
+                                    언어에 비해서 매우 적은 편이라는 점이다. 이런 경우, 대부분 크로스 플랫폼으로 작성된 코드가 그러하듯 타겟 플랫폼을 인지하여 특정 플랫폼에서는
+                                    다르게 동작하게 하는 식으로 코딩을 하게 된다. 주로 java.nio 패키지에 속한 API 에서 이러한 경우를 발견할 수 있으며,
+                                    <a href="https://namu.wiki/w/OS%20X">OS X</a>
+                                    에서만 일부 특이하게 동작하는 MIDI 관련 API 또한 이러한 경우에 속한다. Java의 모토는 Write once, run
+                                    everywhere(한 번 짜서, 어디서나 실행하라)인데 프로그래머들은 이를 비꼬아 Write once,
+                                    <strong>test everywhere</strong>(한 번 짜서, 모든 플랫폼에서 테스트하라)라고 말하곤 한다.
+                                </p>
+                                <p>
+                                    C나 C++에서도 크로스 플랫폼 형태로 소스코드를 작성하는 것이 가능하기는 했지만, 개발자가 타겟 플랫폼과 해당 플랫폼용 바이너리 코드를
+                                    생성하는 컴파일러에 대해서 잘 이해하고 나서 #define, #if 등 전처리기를 써서 각 타겟 플랫폼에 맞게 동작하도록 코드를 직접 작성해줘야
+                                    했다. 이와 달리, Java는 단일 소스코드를 컴파일하여 생성된 바이트코드 클래스 파일을 JVM이 존재하는 환경이라면 어디서나 (대부분은) 추가
+                                    컴파일이나 수정작업 없이 그대로 똑같이 실행할 수 있다는 점이 차이점이다. 기업 입장에서 컴파일된
+                                    <strong>바이너리</strong>가 크로스 플랫폼을 보장해주는 Java는 매력적인 언어였다.
+                                </p>
+                                <p>
+                                    JVM 위에서 구동 가능한 언어는 Java 외에도 존재하는데, 이 언어들을 사용하면 Java와 동일한 수준의 호환성을 구현할 수 있다. 구글에서
+                                    안드로이드 개발의 차세대 언어로 밀어주는<a href="https://namu.wiki/w/Kotlin">Kotlin</a>이 대표적인 케이스다. Java의 개발 주체인 Oracle에서 개발하는 GraalVM이라는
+                                    <del style="color:grey">한국에서 자주 쓰이는
+                                        <a href="https://namu.wiki/w/%EC%A7%80%EB%9E%84">어떤 욕설</a>과 관계 없다</del>
+                                    프레임워크도 있다. 이 프레임워크에서는
+                                    <a href="https://namu.wiki/w/C%2B%2B">C++</a>도 JVM 위에서 실행하는 것이 가능하다.
+                                </p>
+                                <p>
+                                    요즘은 하드웨어와 밀접하게 연동되어야 하는 프로그램이 아니라면, 또는 메인 로직은 서버에서 돌아가고 클라이언트에서는 인터페이스만 제공해주면 되는
+                                    경우라면 JVM보다는 웹 기술을 이용한 방식이 더 주목받고 있다. 아예 어디에서나 동일한 동작을 보증하는 웹 사이트의 형식으로 서비스를 하거나,
+                                    네이티브 앱의 UI가 필요한 경우에는
+                                    <a
+                                        href="https://namu.wiki/w/React(%EB%9D%BC%EC%9D%B4%EB%B8%8C%EB%9F%AC%EB%A6%AC)">React Native</a>
+                                    또는
+                                    <a
+                                        href="https://namu.wiki/w/Flutter(%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC)">Flutter</a>
+                                    등의 프레임워크를 이용하는 경우가 많다. 전자는 웹 개발에서 주로 쓰이는
+                                    <a href="https://namu.wiki/w/JavaScript">JavaScript</a>를 이용하고, 후자는 구글에서 웹 프로그래밍의 용도로 만든
+                                    <a
+                                        href="https://namu.wiki/w/Dart(%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D%20%EC%96%B8%EC%96%B4)">Dart</a>라는 언어를 이용한다. 이 외에 게임이나 3D 렌더링이 필요한 앱의 경우
+                                    <a href="https://namu.wiki/w/%EA%B2%8C%EC%9E%84%20%EC%97%94%EC%A7%84">게임 엔진</a>을 이용한다.
+                                </p>
+                            </div>
+                            <div id="s2-4">
+                                <br>
+                                <strong class="Sname">
+                                    <a href="#main">&nbsp;&nbsp;2.4</a>
+                                    안전성</strong><br>
+                                <hr>
+                                <p>
+                                    다른 언어에 비해 높은 안정성을 꼽고 있다. 우선 C나 C++에 안정성 문제가 제기되는 포인터 연산자 및 메모리 직접접근 함수들을 지원하지
+                                    않는다. 여기에 C++과는 다르게 다중
+                                    <a
+                                        href="https://namu.wiki/w/%EC%83%81%EC%86%8D(%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D)">상속</a>을
+                                    허용하지 않는다. 이는 객체지향의 특성 중 하나인 '상속'의 자유도를 확 떨어트리는 것이기에 언뜻 보기에는 객체지향적 관점에 위배되는 것처럼
+                                    보일 수 있으나, 반대로 오히려 이게 더 객체지향적이라고 볼 수도 있다. 객체지향의 목적 자체가 재사용을 통한 생산성의 향상과 관리 상의
+                                    이점인데, 다중 상속은 잘못 사용할 시 극도로 복잡하게 꼬인 프로그램을 만들 위험성을 갖고 있다. 물론 코드 관리의 측면에서도 다중상속에 의해
+                                    발생하는 문제는 좋지 않다. 수준 높은 프로그래머라면 이 문제도 잘 해결할 수 있지만, Java는 아예 미연에 방지하기 위해 다중상속을 언어
+                                    스펙에서 제거하는 방법을 택했다.
+                                </p>
+                                <p>
+                                    메모리를 대용량으로 사용하는 프로그램에서 상대적으로 C/C++보다 안정적인 모습을 보일 때도 있는데, 이런 경우에
+                                    <a href="https://namu.wiki/w/JVM">JVM</a>이 시작될 때 필요한 메모리를 먼저 통으로 잡아버리기 때문이다.
+                                    메모리를 자주 할당하거나 해제하는 C/C++ 프로그램은 오히려 Java보다 성능이 느릴 수 있다. 다만 이는 메모리 할당자 없이 매번 힙 영역
+                                    메모리를 운영체제로부터 할당받는 경우에 해당하는 말이고, 실제 C/C++ 프로젝트에서는 jemalloc 등 메모리 할당자 라이브러리를 사용하거나
+                                    메모리 할당자를 직접 구현하여 이런 문제를 해결하는 것이 일반적이다.
+                                </p>
+                            </div>
+                            <div id="s2-5">
+                                <br>
+                                <strong class="Sname">
+                                    <a href="#main">&nbsp;&nbsp;2.5</a>
+                                    소스코드 가독성</strong><br>
+                                <hr>
+                                <p>
+                                    고급 프로그래밍 언어가 만들어진 첫째 목적은 '좀 더 인간 친화적인' 코드의 작성을 돕는 데 있다.
+                                    <a href="https://namu.wiki/w/%EA%B8%B0%EA%B3%84%EC%96%B4">기계어</a>가
+                                    <a href="https://namu.wiki/w/%EC%96%B4%EC%85%88%EB%B8%94%EB%A6%AC%EC%96%B4">어셈블리어</a>로 진화하고 그것이
+                                    <a
+                                        href="https://namu.wiki/w/C(%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D%20%EC%96%B8%EC%96%B4)">C언어</a>로
+                                    진화한 배경에는 '사람이 더 쉽게 읽고 이해할 수 있는 코드'가 있다. Java는 동시기에 발표된 다른 언어에 비해 코드가 명료하고 가독성이
+                                    뛰어났다.
+                                    <a href="https://namu.wiki/w/C%2B%2B">C++</a>은 어려운 문법으로 인해 코드가 이리저리 꼬이는 경우가 많고, 특히 연산자 오버로딩과
+                                    <a href="https://namu.wiki/w/%ED%85%9C%ED%94%8C%EB%A6%BF">템플릿</a>
+                                    기반의
+                                    <a href="https://namu.wiki/w/C%2B%2B#s-4">일반화 프로그래밍(Generic Programming)</a>
+                                    개념이 코드 난독화에 결정타를 날렸는데 Java는 연산자 오버로딩을 배제하고 오로지
+                                    <strong>
+                                        <a href="https://namu.wiki/w/%EB%A9%94%EC%86%8C%EB%93%9C">메소드</a>
+                                    </strong>를 통해서만 객체의 조작을 허용함으로써 코드의 일관성을 지켜냈다.
+                                </p>
+                                <p>
+                                    <a href="https://namu.wiki/w/%ED%85%9C%ED%94%8C%EB%A6%BF#s-6">C++ 템플릿</a>
+                                    프로그래밍의 주 사용 용도인 일반화 프로그래밍도
+                                    <strong>제네릭</strong>이라는 더 쉬운 개념을 도입해서(Java 5부터 지원) 코드의 가독성을 해치지 않고 일반화 프로그래밍을
+                                    성공적으로 도입했다. 키워드에 약어 사용을 자제한 점도 코드 가독성 상승에 기여했다.
+                                </p>
+                                <p>
+                                    하지만 Java가 로우레벨 언어인 C나 C++보다 읽기 쉽다고 해서 일반적인 시각에서 보기에 가독성이 좋은 언어는 아닌데, 그 이유는 단점
+                                    항목에서 언급된 소스 코드의 길이 문제 때문이다. 일반적으로 개발자들 사이에서 Java가 가독성이 좋은 언어로 통용되지는 않는다.
+                                    <a href="https://namu.wiki/w/Kotlin">Kotlin</a>이 구글에 의해 Java의 대체 언어로 선정된 이유는
+                                    오라클과의 저작권 관련 분쟁 때문도 있지만, Java 문법의 장황함과 가독성의 불편함에서 기인한 것이기도 하다. 비유를 하자면 Java는 입문
+                                    장벽을 낮춘 대신 이런저런 제약을 울타리처럼 둘러친 언어이고, C/C++는 프로그래머에게 자유도를 부여한 대신 입문 장벽을 높여버린 언어라고 할
+                                    수 있다.
+                                </p>
+                            </div>
+                        </div>
+                        <div id="s3">
+                            <br>
+                            <strong class="Sname">
+                                <a href="#main">3.</a>
+                                부정적 평가</strong><br>
+                            <hr>
+                            <div id="s3-1">
+                                <br>
+                                <strong class="Sname">
+                                    <a href="#main">&nbsp;&nbsp;3.1</a>
+                                    속도 문제</strong><br>
+                                <hr>
+                                <p>
+                                    여기서 잠시 유의할 점은, 느리다는 내용은 대부분 C/C++, Pascal, Fortran 같은 네이티브 바이너리 코드를 만드는 언어와 비교했을
+                                    때의 이야기이다. Java가 C/C++보다 2~3배 느리다고 하지만 다른 고수준 언어들에 비해서는 그리 떨어지지 않는다. 1.4버전에서 JIT
+                                    컴파일 지원이 돼서 많이 빨라졌다. 특히 인터프리터/스크립트 언어는 구조적으로 Java에 비해서도 훨씬 느리다는 것을 기억하자. 예를 들어 요즘
+                                    인기있는
+                                    <a href="https://namu.wiki/w/Python">Python</a>은 C보다 수십 배 느리다. 그나마 빠르다고 하는
+                                    <a href="https://namu.wiki/w/JavaScript">JavaScript</a>도 Java에 비해서 2배 정도 느리다.
+                                </p>
+                                <p>
+                                    또한 속도 관련 문제는 하드웨어의 성능이 점점 좋아지고 메모리 가격이 떨어지면서 희석되고 있다. 처음 Java가 나왔을 때인 1995년만
+                                    하더라도, 느린 성능 때문에 그다지 많이 쓰이지는 않을 것이라고 예상했지만 현재 Java가 가장 많이 사용되는 곳 중 하나는 안정성과 일정 수준
+                                    이상의 성능이 요구되는 서버다. Java가 네이티브 코드보다 느리지만 대부분의 상황에서는 큰 문제가 되지 않는다.
+                                </p>
+                                <p>
+                                    또한 자바 자체적으로도 지속적인 업데이트를 통해 속도가 상당히 빨라지고 있다. java 15의 경우 java 11보다 평균 약 11%정도 빠르며
+                                    <a
+                                        style="color:green"
+                                        href="https://www.optaplanner.org/blog/2021/01/26/HowMuchFasterIsJava15.html">#.</a>
+                                    , java 11은 java 8보다 평균 약 16%정도 빠르다.
+                                    <a
+                                        style="color:green"
+                                        href="https://www.optaplanner.org/blog/2019/01/17/HowMuchFasterIsJava11.html">#</a>. java 18 부터는
+                                    <a style="color:green" href="https://openjdk.java.net/jeps/416">reflection 코드를 재작성</a>
+                                    하여 속도를 개선하기도 했다.
+                                </p>
+                                <div id="s3-1-1">
+                                    <br>
+                                    <strong class="Sname">
+                                        <a href="#main">&nbsp;&nbsp;&nbsp;&nbsp;3.1.1</a>
+                                        JVM 로딩 속도 문제</strong><br>
+                                    <hr>
+                                    <p>
+                                        Java의 심각한 단점 중 하나는, 실행하는 과정에서
+                                        <a href="https://namu.wiki/w/Java%20Virtual%20Machine">Java Virtual Machine</a>이
+                                        <strong>반드시</strong>
+                                        완벽하게 로딩되어야 하기 때문에 프로그램의 초기 시작 시간이 완전한 이진 코드로 컴파일된 프로그램을 실행하는 것에 비해 오래 걸리는 것이다.
+                                        단적인 예로, 아무것도 안하고 콘솔 화면에 달랑 "Hello, World!" 라고 찍기만 하는 프로그램이 실행되는 데에도 thread가 10개
+                                        쯤 뜬다. 특히 그 프로그램에 AWT, Swing, SQL 같이 불필요한 기능을 끌어들이는 것은 매우 심각한 문제이다. 이 문제는 런타임 자체가
+                                        아직 모듈화되지 않았다는 점에서 기인한다.
+                                        <a
+                                            href="https://namu.wiki/w/%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C(%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C)">안드로이드</a>는 이 문제 때문에 JVM을 안 올리고 달빅
+                                        <a href="https://namu.wiki/w/JIT">JIT</a>,
+                                        <a
+                                            href="https://namu.wiki/w/%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C%20%EB%9F%B0%ED%83%80%EC%9E%84">안드로이드 런타임</a>으로 아예 컴파일을 하는 식으로 대응한다.
+                                    </p>
+                                    <p>
+                                        양 컴퓨터에서는 아주 많은 라이브러리를 끌어오는 것이 아니라면 체감상 차이는 크게 나지 않는다. 또한 Java 9부터는 드디어
+                                        <strong>런타임 라이브러리를 모듈화</strong>하고 있으므로, 필요한 모듈만 끌어서 프로그램을 짤 수 있다.
+                                    </p>
+                                </div>
+                                <div id="s3-1-2">
+                                    <br>
+                                    <strong class="Sname">
+                                        <a href="#main">&nbsp;&nbsp;&nbsp;&nbsp;3.1.2</a>
+                                        가상 머신 바이트코드 실행 속도 문제</strong><br>
+                                    <hr>
+                                    <p>
+                                        C/C++, Pascal, Fortran과 같은 언어와 달리, Java는
+                                        <a href="https://namu.wiki/w/%EB%B0%94%EC%9D%B4%ED%8A%B8%EC%BD%94%EB%93%9C">바이트코드</a>로 된 프로그램을 실행하기 위해 운영체제와 프로그램 사이에
+                                        <a href="https://namu.wiki/w/JVM">JVM</a>이라는 두꺼운 계층이 하나 더 자리잡게 된다. 그리고 바이트코드는 실시간으로 각 타겟 플랫폼용 기계어로 번역되어 실행된다. 덕분에
+                                        <a href="https://namu.wiki/w/JVM">JVM</a>만 설치되어 있다면 어느 운영체제나 CPU이든 간에 자바 프로그램이
+                                        실행될 수 있지만 네이티브 바이너리 코드를 출력하는 언어와 비교하여 실행속도와 성능에 일정 부분 손실이 발생한다. AWT, Swing 같은
+                                        GUI 라이브러리를 사용할 때도 심각하게 느린 것을 체감할 수 있다. 이런 문제점을 썬 마이크로시스템즈도 곧 깨달았고, 최초 발표에서 2년 후인
+                                        1998년부터
+                                        <a href="https://namu.wiki/w/JIT">JIT</a>
+                                        컴파일러를 JVM에 내장하여 성능이 상당 부분 개선되었다. 하지만, 그만큼
+                                        <a href="https://namu.wiki/w/%EB%A9%94%EB%AA%A8%EB%A6%AC">메모리</a>가 뒷받침해줘야 한다.
+                                        현재는 보통 같은 기능/알고리즘을 실행하는 데 C++보다 2~3배 정도의 시간이 더 필요하다고 알려져 있다. 이 부분은 꽤 초기부터 지속적으로
+                                        개선되어 왔기 때문에 현재 실행속도 자체에 대한 이슈는 예전에 비해 많이 줄어든 편이다.
+                                    </p>
+                                    <p>
+                                        이 문제는 Java 9에서 '선행 컴파일'이라는 이름으로 개선될 예정이다. JIT 컴파일로 실행과 동시에 컴파일을 하는 게 아니라 기존의 정적
+                                        컴파일처럼 바이트코드를 미리 기계어로 번역하면, 컴파일 속도는 다소 느려지지만 실행 속도는 빨라지게 된다. 물론 컴파일 한 번으로 여러
+                                        플랫폼에서 동일하게 실행시키는 건 불가능해진다.
+                                    </p>
+                                </div>
+                                <div id="s3-1-3">
+                                    <br>
+                                    <strong class="Sname">
+                                        <a href="#main">&nbsp;&nbsp;&nbsp;&nbsp;3.1.3</a>
+                                        가비지 컬렉션에 의한 실행 지연 문제</strong><br>
+                                    <hr>
+                                    <p>
+                                        <a href="https://namu.wiki/w/%EC%93%B0%EB%A0%88%EA%B8%B0%20%EC%88%98%EC%A7%91">가비지 컬렉션</a>에
+                                        의한 메모리 프리징 현상[12]이 초반부터 지속적으로 Java를 괴롭혔다. 멀쩡하게 동작해야 할 프로그램이 순간적으로 뚝 뚝 끊기는 듯한 현상이
+                                        발생하는 것. 오늘날 Java의 문제는 바이트코드 변환으로 인한 속도 저하보다 이 가비지 컬렉션의 영향이 더 크다고 할 수 있다. 이러한
+                                        문제점은 가비지 컬렉션을 지원하는 다른 프로그래밍 언어들도 마찬가지이긴 하지만 실행속도와 함께 Java 초기부터 꾸준히 문제로 꼽혀온 것으로,
+                                        버전이 올라갈 때마다 다양하게 개선되어 왔다.
+                                    </p>
+                                    <p>
+                                        Java 8부터는 G1 가비지 컬렉터가 기본 설정으로 바뀌었다. G1 GC는 메모리 누수를 일으키던 메소드 영역의 PermGen Area를
+                                        제거하여 static 인스턴스와 리터럴 문자열도 GC의 대상이 되도록 바뀌었으며, 클래스, 메소드, 배열의 메타 정보는 동적 리사이징이 가능한
+                                        Metaspace로 이동시켜 시스템 힙 영역에 저장된다. 덕분에 JVM 힙 영역의 공간이 늘어나고 PermGen Area를 스캔/삭제할 필요가
+                                        없어져 GC의 성능이 대폭 향상되었다.
+                                    </p>
+                                </div>
+                            </div>
+                            <div id="s3-2">
+                                <br>
+                                <strong class="Sname">
+                                    <a href="#main">&nbsp;&nbsp;3.2</a>
+                                    불편한
+                                    <a href="https://namu.wiki/w/%EC%98%88%EC%99%B8%20%EC%B2%98%EB%A6%AC">예외 처리</a>
+                                </strong><br>
+                                <hr>
+                                <p>
+                                    다른 객체지향 언어들처럼, Java 역시 try~catch문으로 대표되는 예외 처리를 할 수 있다. 대부분의 언어에서 차용하고 있는 좋은
+                                    기능이지만... 유독 Java는 다른 언어와는 달리 프로그래머의 검사가 필요한 예외(Exception을 직접 상속하는 예외 클래스)가 등장한다면
+                                    무조건 프로그래머가 선언을 해줘야 한다. 그렇지 않으면
+                                    <strong>컴파일조차 거부한다.</strong>
+                                    원래 의도는 철저한 예외 처리를 하니까 만약에 발생할 수 있는 모든 상황에 안정성을 확보할 수 있겠지...였으나, 결국 대부분의 경우엔
+                                    <strong>귀찮다</strong>는 이유로, 가장 일반적인 예외인 Exception
+                                    <del style="color:grey">더 막나가면 Throwable</del>
+                                    하나만 써서 넘어가버리고 폭탄 돌리듯 넘기기만 하거나(예외 던지기만 하고 try~catch 안하면 메소드를 돌고 돌다가 콰광!), 예외 나든
+                                    말든 무시해 버리는 경우가 가장 흔하다.[14] 이런 코드가 너무 흔해 빠진 나머지 이딴 식으로 쓸 거면 왜 넣었냐고 까는 사람도 많다. 그런데
+                                    선언이 필요없는,
+                                    <strong>검사 안하는</strong>
+                                    예외도 Java에 많다(...). 그리고 C++이나 C# 같이 예외가 있는 언어라도 Java처럼 예외를 쓰는 경우는 별로 없다. 두 언어는 모든
+                                    예외가
+                                    <strong>검사 안하는</strong>
+                                    예외이다. 사실 예외 처리를 한다는 것은 귀차니즘과 견고함을 맞바꾸는 일인데,
+                                    <a
+                                        href="https://namu.wiki/w/%EB%82%B4%EB%A0%A4%EA%B0%88%20%ED%8C%80%EC%9D%80%20%EB%82%B4%EB%A0%A4%EA%B0%84%EB%8B%A4">안할 사람은 문법으로 강제해도 안한다</a>는 것을 보여준다.
+                                </p>
+                                <p>
+                                    대부분의 다른 언어에서는 원하는 에러만 try-catch문으로 뽑아내고 그렇지 않은 경우에는 그냥 아무 처리를 해주지 않아도 된다. 이러한
+                                    언어를 접하던 사람이 Java를 접하면 그 특유의 경직된 예외처리에 불편해하기도 한다. 오히려 명시적으로 예외처리를 할 수 없는 경우도
+                                    존재하는데, 인터페이스를 상속받을 때 인터페이스에 선언된 예외가 아니면 구현 클래스에서 그 예외를 던질 수 없다! 특히, Java에서 제공하는
+                                    Iterator 인터페이스에는 throws 선언 따위는 없기 때문에 Iterator를 구현받았을 때 명시적으로 예외를 던질 수 없다. 이 상황을
+                                    해결하려면 RuntimeException 계열을 쓸 수밖에 없는 상황이 펼쳐진다.
+                                </p>
+                                <p>
+                                    다만, 상기의 내용은 실무적 접근에 의한 내용이고, 실제로는 이는 장점으로도 취급되기도 한다. Assert문을 자유자재로 쓰면서 예외처리를
+                                    하거나 코딩과 동시에 발생할 수 있는 각종 예외들을 인지하고 처리해주는 걸 잊어먹는 경우에 대한 대처가 가능하다.
+                                </p>
+                            </div>
+                            <div id="s3-3">
+                                <br>
+                                <strong class="Sname">
+                                    <a href="#main">&nbsp;&nbsp;3.3</a>
+                                    소스 코드의 길이</strong><br>
+                                <hr>
+                                <p>
+                                    Java는 소스 코드의 길이가 다른 언어에 비해 상당히 긴 편이다. 같은 기능을 하는 코드를 짠다고 했을 때 다른 언어에 비해 입력해야 할 양이
+                                    많다. 구체적으로 말하자면 일명 Boilerplate라고 부르는, 기본적인 구조를 짜기 위해서 무조건 의무적으로 작성해 주어야만 하는 서식과
+                                    코드의 분량이 많다.
+                                </p>
+                                <p>
+                                    인터프리터 언어에서는 puts("Hello") 정도로 끝났을 일을 Java에서는
+                                </p>
+                                <div class="java_eval">
+                                    <strong style="color:blue">class</strong>
+                                    Main {<br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;<strong style="color:blue">public static void</strong>
+                                    main(String args[]) {<br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println(<strong style="color:orange">"Hello"</strong>);<br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp; }<br>
+                                    }
+                                </div>
+                                <p>
+                                    이만큼을 써야 한다.<br>
+                                </p>
+                                <p>
+                                    같은 일을 하는
+                                    <a href="https://namu.wiki/w/Kotlin">Kotlin</a>
+                                    언어 코드는<br>
+                                </p>
+                                <div class="java_eval">
+                                    <strong style="color:blue">fun</strong>
+                                    main() {<br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;println(<strong style="color:blue"></strong>"Hello") }
+                                </div><br>
+                            </p>
+                            <p>
+                                <a href="C.html">C</a>언어 코드는<br>
+                            </p>
+                            <div class="java_eval">
+                                main() {
+                                <br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;puts(<strong style="color:orange">"Hello"</strong>); }
+                            </div><br>
+                            <p>
+                                <a href="https://namu.wiki/w/C%23">C#</a>
+                                10.0의 경우<br>
+                            </p>
+                            <div class="java_eval">
+                                Console.WriteLine(<strong style="color:orange">"Hello"</strong>);
+                            </div><br>
+                            <p>
+                                <a href="https://namu.wiki/w/JavaScript">JavaScript</a>,
+                                <a href="https://namu.wiki/w/TypeScript">TypeScript</a>의 경우<br>
+                            </p>
+                            <div class="java_eval">
+                                console.log(<strong style="color:orange">"Hello"</strong>)
+                            </div><br>
+                            <p>
+                                <a href="python.html"></a>Python,
+                                <a href="https://namu.wiki/w/Lua">Lua</a>의 경우<br>
+                            </p>
+                            <div class="java_eval">
+                                print(<strong style="color:orange">"Hello"</strong>)
+                            </div><br>
+                            <p>
+                                <a href="https://namu.wiki/w/Ruby">Ruby</a>의 경우<br>
+                            </p>
+                            <div class="java_eval">
+                                puts
+                                <strong style="color:orange">"Hello"</strong>
+                            </div><br>
+                            <p>
+                                <del>
+                                    <a href="https://namu.wiki/w/HQ9%2B">HQ9+</a>의 경우 H</del>
+                            </p>
+                            위키책에 있는 Hello World 프로그램의
+                            <a style="color:green" href="https://namu.wiki/w/HQ9%2B">목록</a>이나, 나무위키 내의
+                            <a
+                                href="https://namu.wiki/w/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D%20%EC%96%B8%EC%96%B4/%EC%98%88%EC%A0%9C">프로그래밍 언어/예제</a>
+                            문서를 보면 하이레벨 언어 중에서는 코드량이 긴 편인 걸 알 수 있다.
+                        </p>
+                        <p>
+                            오죽하면
+                            <a
+                                href="https://medium.com/@webseanhickey/the-evolution-of-a-software-engineer-db854689243">이런</a>
+                            포스트가 만들어질까. 물론 이건 Java의 문제가 아니고 마세라티 문제라고 알려진 프로그래머의 과욕이 부른 참상이지만 코드에 유연성을 조금
+                            추가하기 위해 써 넣어야 할 코드의 길이가 기하급수로 증가한다는 하나의 예시로 볼 수 있다. 참고로 저 포스트의 5년차 코드는
+                            <a
+                                href="https://namu.wiki/w/Spring(%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC)">Spring</a>의 패러디다. Java 이후에 나온 차세대 언어들은 같은 수준의 유연성을 확보하기 위해 들여야 할 노력의 양이 훨씬 적다.
+                        </p>
+                        <p>
+                            이렇게 의도적인 장황함(verbosity)을 추구하는 언어 설계와 커뮤니티의 문화가 아이러니하게도 위에서 언급한 장점이 무색하게 가독성을
+                            저해하는 요인이 되기도 한다. 같은 기능을 하더라도 수십 줄의 보일러플레이트 코드를 가지는 Java 코드보다 다른 언어의 코드가 보통은 더 읽기
+                            쉽기 때문.
+                        </p>
+                        <p>
+                            게다가 다른 하이레벨 언어(C#, Python, Ruby 등)에 비해 문법적 설탕(Syntactic sugar)이 적어 이쪽에서 넘어오면 꽤
+                            불편해하는 편. 하지만 최근 Java 8로 넘어오면서 람다 표현식, 스트림 등을 지원하는 식으로 문법적 편리함을 늘려가는 추세다. 이 흐름은
+                            다음 Java 9에서 더욱 강화될 것으로 보는 추세.
+                        </p>
+                        <p>
+                            그러나 무조건 코드량이 많다고 해서 나쁜 것만 있는 것이 아니다. 일단 Java는 클래스 지향적이기 때문에 어쩔 수 없는 부분이고, 커다란
+                            프로젝트 단위에서 봤을 땐 오히려 클래스와 메소드, 변수의 소속이 확실하기 때문에 코드를 금방 파악할 수 있다. 축약어의 사용을 최대한 자제하는
+                            방향으로 만들었기 때문에 그렇다.[25] Python이나 JavaScript 같은 동적 타입 언어들은 소규모 프로젝트에는 좋겠지만 대형
+                            프로젝트에서는 불편할 수도 있다.
+                        </p>
+                        <p>
+                            JetBrains에서 개발한
+                            <a href="https://namu.wiki/w/Kotlin">Kotlin</a>은 바로 이 Java의 언어적 불편함을 최소화하려고 나온 새 프로그래밍 언어이며,
+                            <a href="https://namu.wiki/w/%EC%B9%B4%EC%B9%B4%EC%98%A4(%EA%B8%B0%EC%97%85)">카카오</a>에서도 카카오톡 메시징 서버에 Kotlin을 도입하는 등(<a href="https://byline.network/2018/09/5-20/">#</a>) Java를 Kotlin으로 대체하려는 움직임이 조금씩 나타나다가, 이후에는 아예
+                            <a
+                                href="https://namu.wiki/w/%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C%20%EC%8A%A4%ED%8A%9C%EB%94%94%EC%98%A4">안드로이드 스튜디오</a>에서 앱 개발 기본 언어로 지정되기까지 했다.
+                        </p>
+                    </div>
+                    <div id="s3-4">
+                        <br>
+                        <strong class="Sname">
+                            <a href="#main">&nbsp;&nbsp;3.4</a>
+                            언어적 불편함</strong><br>
+                        <hr>
+                        <div id="s3-4-1">
+                            <br>
+                            <strong class="Sname">
+                                <a href="#main">&nbsp;&nbsp;&nbsp;&nbsp;3.4.1</a>
+                                명사형 사고를 강제</strong><br>
+                            <hr>
+                            <p>
+                                Java는 모든 동작이 객체 상위에서 이루어지게 함으로써 명사형으로 생각하는 것을 강제한다. 그 결과로 Java에는 전역 함수가 없고 모든
+                                함수는 어떤 클래스에 종속되어있다. 이 때문에 기능적인 부분을 작성하는데 자잘한 클래스들을 작성해야 한다는 불편함이 있다.
+                                <p></p>
+                                이런 명사 중심적 생각은 확실히 많은 경우 편리하나 동사 중심으로 생각해야 하는 상황도 생각보다 흔하다는 게 문제. 예를 들어서, 퀵소트를
+                                Java에서 엄격하게 의도된 대로 짜려면 quickSort(array)라는 함수 대신 QuickSorter라는 객체의 생성자에 배열을 넣고, 그
+                                생성자를 참조하는 참조변수를 이용해 run()을 호출하여 동작시켜야 하는 것이다.
+                                <p></p>
+                                <a href="https://namu.wiki/w/%EB%94%94%EC%9E%90%EC%9D%B8%20%ED%8C%A8%ED%84%B4">디자인 패턴</a>을
+                                사용해서 어느 정도 동사형 사고방식으로 코드를 작성할 수 있긴 하다. 디자인 패턴에서 핵심적 지위를 차지하는 인터페이스라는 놈을 사용하면 상당히
+                                동사적인 관점으로 객체를 다룰 수 있다. Java의 리플렉션 API를 사용하는 방법도 있고. 하지만 애초에 언어가 생겨먹은 것 자체가 명사
+                                기준으로 생각하게 디자인된 건 사실이다. Java의 근간을 이루는 표준 java.lang 클래스와 java.util 클래스를 동사형 사고방식으로
+                                재작성하기 전에는 힘들다. 이 재작성 삽질은 이미
+                                <a href="https://namu.wiki/w/Scala">Scala</a>에서 해 놨으므로 Java의 이러한 특징이 싫다면 Scala를 쓰면 된다.
+                            </p>
+                        </div>
+                        <div id="s3-4-2">
+                            <br>
+                            <strong class="Sname">
+                                <a href="#main">&nbsp;&nbsp;&nbsp;&nbsp;3.4.2</a>
+                                <a href="https://namu.wiki/w/%ED%81%B4%EB%A1%9C%EC%A0%80">클로저</a>
+                                미지원</strong><br>
+                            <hr>
+                            <p>
+                                명사형 생각을 강제한다는 것의 연장선. 버전 7 이하의 Java는 함수를 일급 객체로 취급하지 않는다. 어떤 '동작'을 넘겨야 할 때는 그
+                                동작을 추상화한 인터페이스를 만들고, 그것을 클래스로 구현한 뒤, 객체를 파라미터로 넘겨야 한다. 반면에 클로저를 지원하는 언어는 그냥 함수를
+                                파라미터로 넘기면 된다.
+                            </p>
+                            <p>
+                                Java의 수많은 디자인 패턴들은 이 클로저 미지원 문제 때문에 만들어졌다. 유명한 GoF의 디자인 패턴 중 전략 패턴이나 옵저버 패턴의 용도만
+                                생각해봐도, 이들은 애초부터 클로저가 지원되었다면 패턴이라는 거창한 이름을 붙일 가치조차 없는 몇 줄의 예제 코드에 지나지 않았을 것이다.
+                            </p>
+                            <p>
+                                Java라는 언어가 설계될 당시에는 클로저라는 개념 자체가
+                                <a href="https://namu.wiki/w/LISP">LISP</a>,
+                                <a href="https://namu.wiki/w/Haskell">Haskell</a>, ML 등의 언어를 사용하거나 프로그래밍 언어 자체를
+                                연구하는 사람들만 아는 몹시 마이너한 개념이었기 때문에 동시기에 만들어진 다른 많은 프로그래밍 언어들도 클로저를 지원하고 있지는 않았다. 따라서
+                                설계 결함이라고 부를 수는 없고 현대에 들어서 단점으로 부각되기 시작했다는 편이 더 적절하다.
+                            </p>
+                            <p>
+                                Java 8에서는 람다 표현식을 지원함과 더불어 메소드 참조라는 방식(this::add)을 통해 함수를 다른 함수의 파라미터로 넘길 수 있게
+                                되었다. 이러한 함수 파라미터는 Functional Interface를 이용하여 선언하는데, Functional Interface는 수십여 종이
+                                있으며 인자가 복수개인 것도 당연히 있고, 하나의 추상 메소드를 가진 인터페이스를 새로 만들어서 써도 된다. 다만 대부분의 언어들과 달리 자바의
+                                람다식은 바깥에 있는 변수를 참조하려면 그 변수가 final이거나 final을 붙여도 문제가 없는 변수들 뿐이다. 따라서 람다식이 주위에 있는
+                                변수를 '저장'할 수는 있으나 그것의 값을 바꿀수는 없다. 변수에 값을 할당하는 것만 불가능할 뿐 변수에 접근해서 조작하는 것 자체는 가능하기
+                                때문에, 변수를 배열로 선언해서 배열 인덱스에 값을 할당하거나 별도의 wrapper 클래스를 만들어 조작하는 등의 트릭을 활용할 수는 있다.
+                                물론 그다지 권장할 만한 기법이 아님에는 주의할 필요가 있다.
+                            </p>
+                            <p>
+                                <ul style="line-height:30px">
+                                    <li>java.util.function에 있는 대표적인 함수형 인터페이스 (Functional Interface)와 그에 대응하는 추상 메소드
+                                        몇개를 나열하자면 다음과 같다.</li>
+                                    <li>Predicate<t>
+                                            ⇒ boolean test(T)</li>
+                                        <li>Consumer<t>
+                                                ⇒ void accept(T)</li>
+                                            <li>Supplier<t>
+                                                    ⇒ T get()</li>
+                                                <li>Function<t, u="U">
+                                                        ⇒ U apply(T)</li>
+                                                    <li>BiFunction<t, u,="U," r="R">
+                                                            ⇒ R apply(T, U)</li>
+                                                    </ul>
+                                                </p>
+                                                <p>
+                                                    물론 위와 같은 몇몇 상용 인터페이스들이 지원되어도 언어의 구조적 한계[27]로 인해 최신 언어들에 비해 그때그때 필요한 구조의 람다식을 선언해
+                                                    써먹기가 매우 피곤하다는 문제점은 여전하다.
+                                                </p>
+                                            </div>
+                                            <div id="s3-4-3">
+                                                <br>
+                                                <strong class="Sname">
+                                                    <a href="#main">&nbsp;&nbsp;&nbsp;&nbsp;3.4.3</a>
+                                                    문자열 비교가 상대적으로 불편함</strong><br>
+                                                <hr>
+                                                <div class="java_eval">
+                                                    String A =
+                                                    <strong style="color:orange">Java"</strong>;<br>
+                                                    String B =
+                                                    <strong style="color:orange">Java"</strong>;
+                                                </div>
+                                                <p>
+                                                    A == B 의 결과는
+                                                    <strong>true</strong>이다.
+                                                </p>
+                                                <div class="java_eval">
+                                                    String A =
+                                                    <strong style="color:orange">Java"</strong>;<br>
+                                                    String B =
+                                                    <strong style="color:blue">new</strong>
+                                                    String(<strong style="color:orange">Java"</strong>);
+                                                </div>
+                                                <p>
+                                                    A == B 의 결과는
+                                                    <strong>false</strong>이다.
+                                                </p>
+                                                <p>
+                                                    이는 premitive 타입 외엔 전부 Object로 처리하는 자바의 특징 때문이다. premitive 타입에선 == 연산자는 두 요소가 같은
+                                                    값을 가지면 true를 반환한다. Object 타입에선 두 인스턴스의 주소가 같으면 true를 반환한다. 즉, 메모리 상의 위치가 같다고
+                                                    인식되는 절대적으로 동등한 인스턴스인 경우에만 같다고 처리하게 된다.
+                                                </p>
+                                                <p>
+                                                    String 역시 예외없이 Object로 취급하기 때문에 A == B는 문자열 값 비교가 아닌 주소 비교를 하게 되는 것이다. 이 때문에
+                                                    문자열이 같은지 비교할 때 A.equals(B) 같은 식으로 여느 C-Like 언어와는 따로 노는 방법을 사용하게 된다.
+                                                </p>
+                                                <p>
+                                                    여기서 특이한 점이 하나가 더 있는데, String을 Object로 취급하면서도 문자열 자체는 메모리에 캐싱을 해둔다는 점이다. 위의 예시에서
+                                                    A에 "Java"를 할당하는 순간 "Java"가 메모리에 캐싱되고 B에 할당하는 "Java"는 이전에 캐싱해 둔 "Java"를 불러온다. 그래서
+                                                    위 예시는
+                                                    <strong>true</strong>를 반환한다.
+                                                </p>
+                                                <p>
+                                                    그러나 아래의 예시에서는 B에 new String("Java")를 할당하는데, 이는 기존 캐싱되어 있는 값을 활용하지 않고 새로운 String
+                                                    인스턴스를 할당하겠다는 의미가 담겨 있다. 그리하여 아래 예시에서는
+                                                    <strong>false</strong>가 반환된다.
+                                                </p>
+                                                <p>
+                                                    이 단점이 가장 두드러지는 곳이 외부에서
+                                                    <a href="https://namu.wiki/w/XML">XML</a>,
+                                                    <a href="https://namu.wiki/w/JSON">JSON</a>
+                                                    등을 불러와 해석해서 그 안에 있는 문자열을 검증할 때인데, 이로 인해 디버깅이 골치아파지기도 한다.
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div id="s3-5">
+                                            <br>
+                                            <strong class="Sname">
+                                                <a href="#main">&nbsp;&nbsp;3.5</a>
+                                                마이크로서비스 / 서버리스에 적합하지 않음</strong><br>
+                                            <hr>
+                                            <p>
+                                                서버 애플리케이션의 추세가 마이크로서비스 / 서버리스로 옮겨가는 추세에서 새로이 부각된 문제. Java 자체의 문제라기보다는
+                                                <a href="https://namu.wiki/w/JVM">JVM</a>
+                                                언어의 특징에 기반한 문제이다. 마이크로서비스는 대규모 서비스를 소규모의 모듈 단위로 분리해서 구현하게 되는데, 이 때문에 서비스 별로
+                                                인스턴스를 분리해서 운용하게 된다. 여기서 각 마이크로서비스의 인스턴스는 상대적으로 저스펙으로 운용하는 경향이 있는데, 앱 기동을 위해서
+                                                JVM을 필수적으로 설치하고 JVM 기동 시 heap 메모리를 충분히 확보해야된다는 특성 때문에 다른 언어에 비해 스토리지와 램을 상대적으로
+                                                많이 요구하게 되고, 이는 필연적으로 코스트 상승으로 이어진다.
+                                            </p>
+                                            <p>
+                                                <a
+                                                    href="https://namu.wiki/w/%EC%84%9C%EB%B2%84%EB%A6%AC%EC%8A%A4%20%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98">서버리스 아키텍처</a>의
+                                                경우 상시 가동 상태인 기존의 서버와 달리 리퀘스트가 있을 시에만 애플리케이션이 기동되는 형태이기 떄문에, JVM이 완벽하게 기동이 된 후
+                                                비로소 애플리케이션이 동작하는 Java의 경우 오히려 Python과 같은 인터프리터 언어로 작성된 애플리케이션보다 반응이 느리다. (물론 연산의
+                                                부하가 높다면 Java 쪽이 빠르다)
+                                            </p>
+                                            <p>
+                                                이런 문제 떄문에 GraalVM 및 이를 활용해 네이티브로 컴파일되는 Quarkus 같은 프로젝트가 개발되고 있기도 한데, 네이티브 컴파일은
+                                                Kotlin과 같은 다른 JVM 언어로도 가능하기 때문에 굳이 Java를 고집할 이유가 없다.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                        </nav>
+                    </body>
+
+                </html>
