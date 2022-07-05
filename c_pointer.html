@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Programming Language</title>
+        <link rel="stylesheet" href="./project/prolang.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link
+            rel="preconnect"
+            href="https://fonts.gstatic.com"
+            crossorigin="crossorigin">
+        <link
+            href="https://fonts.googleapis.com/css2?family=Gothic+A1&display=swap"
+            rel="stylesheet">
+        <link rel="stylesheet" href="./prolang.css">
+        <style>
+            * {
+                font-family: 'Gothic A1', sans-serif;
+            }
+        </style>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"
+            integrity="sha512-cdV6j5t5o24hkSciVrb8Ki6FveC2SgwGfLE31+ZQRHAeSRxYhAQskLkq3dLm8ZcWe1N3vBOEYmmbhzf7NTtFFQ=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"></script>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/ScrollToPlugin.min.js"
+            integrity="sha512-kSI9CgGh60rJbNVeMJvfNX0UTKAq8LEOea/yKJQbFpIroxT7bf9/zUFXbnfsQP5F6xlOOHtCfBPgsE1ceiHnRw=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"></script>
+    </head>
+
+    <body>
+        <div id="goto-top">
+            <div class="material-icons">
+                <arrow_upward></div>
+            </div>
+            <script>
+                const gotoTopEl = document.querySelector('#goto-top')
+                window.addEventListener('scroll', function () {
+                    if (window.scrollY > 500) {
+                        gsap.to(gotoTopEl, .2, {x: 0})
+                    } else {
+                        gsap.to(gotoTopEl, .2, {x: 100})
+                    }
+                }, 300)
+                gotoTopEl.addEventListener('click', function () {
+                    gsap.to(window, .7, {scrollTo: 0})
+                })
+            </script>
+            <header class="mainName"><div style="cursor:pointer" onclick="location.href='index.html';">
+                Programming Language</div></header>
+            <hr>
+            <div class="navi">
+                <div>
+                    <button type="button" onclick="location.href='python.html'">1. Python
+                    </button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
+                    <button type="button" onclick="location.href='java.html'">2. Java
+                    </button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
+                    <button type="button" onclick="location.href='c.html'">3. C
+                    </button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </div>
+            </div>
+            <hr>
+
+            <div style="text-align:center">
+                <img
+                    style="height:120px"
+                    ;=";"
+                    src="https://w.namu.la/s/ce20492be144468cf42104f3e090c84671b511ab7e3c5de6bafcc899742befc6dad34f043cd8577dffe1b4de893e92564e215a54e500bfa29a86cba797c00266c2437d0f7dfe8ce2f6897b04f74bfb174bd2b5f673d550652279d5b86b234866">
+            </div>
+            <div
+                style="border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: .9rem;
+            margin-bottom: 1em;
+            padding: 3px 3px 3px 5px;">상위문서 :
+                <a href="c.html">C</a>
+            </div>
+            <nav class="mainDisplay">
+                <section class="listStyle">
+                    <h2 id="main">목차</h2>
+                    <div class="list"><br>
+                        <span>
+                            <a href="#s1">1.</a>&nbsp;포인터
+
+                            <ul>
+                                <a href="#s1-1">1.1</a>&nbsp;&nbsp;주요 오개념: 배열과 포인터 사이의 관계</ul>
+                            <ul>
+                                <a href="#s1-2">1.2</a>&nbsp;&nbsp;주요 오개념: 포인터의 크기 및 상호 변환 관계</ul>
+                            <ul>
+                                <a href="#s1-3">1.3</a>&nbsp;&nbsp;주요 오개념: 스택(stack)과 힙(Heap)</ul>
+                        </span>
+                    </div>
+                </section>
+                <article class="center">
+                    <div id="s1">
+                        <br>
+                        <strong class="Sname">
+                            <a href="#main">1.</a>
+                            포인터</strong><br>
+                        <hr>
+                        <p>
+                            포인터는 C의 자료형 중 하나로서, 다른 객체(object)가 저장 공간(data storage) 내에 저장되는 위치(주소) 값을 저장할 수
+                            있다. 이 포인터를 통해 다른 객체에 접근하여 읽고 쓰거나 함수를 실행시킬 수 있다.
+                        </p>
+                        <p>
+                            C에서의 포인터는 보통 정수 값으로 추상화 된다. 간단하게 설명하자면, 컴퓨터 메모리상의 모든 저장 공간에 대해 1Byte 단위로 1, 2,
+                            3....과 같이 정수로 된 주소값을 부여하여, 이 주소값을 가지고 해당 위치에 접근하도록 한 것이라 생각하면 된다. 이러한 추상화 방식은 다른
+                            고급 언어의 참조형들과 비교할 때 좀 더 하드웨어에 가깝고 직접적이며 직관적인 편이다.
+                        </p>
+                        <p>
+                            하지만 그 점 때문에, 처음 배우는 사람들이 위험한 방식으로 잘못 이해하기 쉽고, 잘 알고 있어도 위험한 실수를 하기 쉽다. 포인터는
+                            <strong>일반적인 변수의 정수형과 완전히 다른 그 무언가의 새로운 타입으로 받아들이는 것이 올바른 이해에 유리</strong>하며, 포인터를 안전하게 사용하기 위해서는 컴퓨터 구조에 대한 어느 정도의 지식이 필요하다.
+                        </p>
+                        <p>
+                            모든 포인터형은 정수형과 상호 변환이 가능하다. 하지만 그 변환 규칙에 여러가지 제한이 따라붙기 때문에, 항상 서로 변환이 가능하다고 생각하는
+                            것은 위험하다. 즉 아무 숫자나 포인터형으로 변환하여 쓸 수는 없다. 변환 규칙과 결과 자체는 구현체에서 각자 정의하도록 되어
+                            있고(implementation-defined), 여기에 memory alignment나 trap representation과 같은 주제들이
+                            있어서, 변환 시도 자체가 정의되지 않은 동작(undefined behavior)이 될 수 있다.
+                        </p>
+                        <p>
+                            또한, 정수형과 유사하게 포인터에 대해서 연산(덧셈과 뺄셈)이 가능하지만 그 결과값은 정수형과 완전히 다르다. 예를 들어, 1000(포인터) +
+                            1(정수형)의 결과값은 1001이 아닐 수 있다. 포인터가 가르키는 자료형의 크기에 따라서 1001이 될 수도, 1004나 1008이 될 수도
+                            있다. 그러므로
+                            <strong>포인터를 다룰 때는 항상 그 주소값 뿐만 아니라 그 포인터가 가리키는 타입이 무엇인지를 같이 생각하면서 다루어야 실수를 하지 않는다.</strong>
+                        </p>
+                        <p>
+                            C의 자료형 중에서는 배열, 구조체, 공용체, 함수와 함께 유도형(derived type)으로 분류된다. 어떤 자료형이든 그 뒤에
+                            *(asterisk)를 붙이면 앞의 자료형에 대한 포인터가 되며, 중첩해서 포인터에 대한 포인터를 사용하는 것도 가능하다. 참고로,
+                            선언문으로부터 자료형을 읽어내는 좀 더 정확한 방법은, 변수 이름의 위치부터 시작해서 연산자의 우선순위에 따라 영어 어순으로 결합해 나가는
+                            것이다.
+                        </p>
+                        <p>
+                            다른 언어의 유사한 개념과 비교하자면, C의 포인터는 정수형을 기반으로 한 상당히 단순한 구조와 기능만을 가지고 있으며 언어 자체적으로도 여러
+                            맥락에서 단지 값으로만 취급된다. 이에 비해 C# 과 같은 메니지드 언어는 별도의 "참조(Reference)형"이라는 타입이 있다. C#이나
+                            Java에는 참조형만을 사용해야 하는 경우를 처리하기 위해서 기본형에 대한 Wrapper Class 들이 존재하고 이로 인해 Boxing과
+                            Unboxing 동작이 필요해진다. C와 C++은 기본형에 대한 포인터나 참조를 사용하면 되므로 Boxing 이나 Unboxing이 존재하지
+                            않는다.
+                        </p>
+                        <p>
+                            C를 배우는 사람들은 포인터에서 한번쯤은 골머리를 앓아보았을것이다. 대부분 입문자들은 컴퓨터 구조에 대해 전혀 모르는 상황에서 C를 배우기
+                            때문. 하지만 포인터를 제대로 사용할 수 있게 되면, 그 시점에서 컴퓨터 위주로 생각할 수 있게 된다고 볼 수 있다. 그렇기 때문에 사실상
+                            컴퓨터 구조와 함께 배우는 셈이 되는데 컴퓨터 구조에 대한 기본 지식이 없는 학습자에게는 이해하기가 쉽지가 않다.
+                        </p>
+                        <p>
+                            포인터 덕분에
+                            <a href="https://namu.wiki/w/%EB%A9%94%EB%AA%A8%EB%A6%AC">메모리</a>를
+                            <a href="https://namu.wiki/w/%EC%96%B4%EC%85%88%EB%B8%94%EB%A6%AC%EC%96%B4">어셈블리어</a>
+                            수준으로 정밀하게 직접 읽고 쓸 수 있지만 그 반작용으로 에러의 90%는 궁극적으로 포인터 문제다. 포인터를 버그 없이 쓰려면 적어도 메모리의
+                            정렬 제한 정도는 이해를 하고 있어야 한다. 그렇지 않으면 잘못된 포인터 테크닉을 남발하는 경우가 생기기 쉬운데다
+                            <a href="https://namu.wiki/w/%EC%97%B0%EA%B2%B0%20%EB%A6%AC%EC%8A%A4%ED%8A%B8">연결 리스트</a>를 배우다 보면 내가 무슨 짓을 하고 있는건지 스스로를 자책할 때가 많아질 수 있다.
+                        </p>
+                        <p>
+                            이러한 어려움 때문에
+                            <a href="java.html">Java</a>나
+                            <a href="">C#</a>
+                            같은 매니지드(알아서 메모리를 관리해주는) 언어들은 기본적으로 객체 참조 기반으로 동작해서 포인터를 지원하지 않는다. 참조에 관련된 일은
+                            저단계에서 알아서 해주기 때문에 쌩 포인터를 잡고 낑낑거리기 보다는 쉽다. (결국 구조체와 배열 참조도 전부 포인터 참조로 이루어진다. 다만
+                            사용자에게 제공하지 않을 뿐이다.) 이게 뭐가 문제냐면 시스템이 복잡해지고 입체적으로 확장되다보면 수많은 포인터의 사용문제가 결국 관리 비용의
+                            엄청난 증가로 이어지기 때문이다. 프로그래머의 각자 역량에 관리를 맡겨버리는 포인터의 심플함은 결국 대규모 프로젝트의 생산성 저하로 이어지고 알
+                            수 없는 오류에 대한 관리 비용 증가로 직결된다. 그래서 Java나 C#과 같은 메니지드 언어에서는 포인터를 시스템 레벨로 올려서 은폐시키고
+                            프로그래머에게는
+                            <a
+                                href="https://namu.wiki/w/%EA%B0%80%EB%B9%84%EC%A7%80%20%EC%BB%AC%EB%A0%89%EC%85%98">가비지 컬렉션</a>
+                            같은 간접적인 노출만 허용하게 되었다. 프로그래머가 직접적으로 메모리를 다루지 않아 오류 상황에서 OS 차원의 셧다운(강제종료)은 없어져서
+                            운용면에서 안정성이 크게 증가되었으나, 퍼포먼스 저하와 더불어 엄청난 오버헤드를 감당하게 되었다. Java나 C#에서 제공하는 가비지 컬렉션의
+                            악명은 설명하지 않아도 알게 될 것이다. 매우 불편하고 느리며 통제가 쉽지 않다. 다만 성능 문제는 현 시점에서 크게 문제가 되지 않는데,
+                            Java나 C#이 주로 사용되는 곳은 데스크톱 애플리케이션이 아닌 웹 서버 프로그래밍 쪽이다. 이쪽은 언어 자체의 퍼포먼스보다 데이터베이스의
+                            쿼리 속도가 더 크게 성능을 좌우한다.
+                        </p>
+                        <p>
+                            포인터는 정말 어렵다! 하는 인식은 과장되어 있는 측면이 크다. 개념 자체는 주소를 저장하는 변수이지만, 입문자에게 포인터가 벽으로 느껴지는
+                            것은 첫 번째로 맞닥뜨리는 생소한 개념이기 때문이다. 그 전까지 간단한 논리 체계를 배우는 수준이었다면 포인터는 본격적으로 컴퓨터의 구조를
+                            공부하게 되는 시점. 게다가 문제는 그 개념이 아니라 응용에 있어 허들이 높다. 제대로 관리하지 않으면 메모리 누수가 일어나고 잘못된 주소를
+                            가리키거나 하는 등 본격적인 디버깅 지옥문. 게다가 여러가지 비정상적인 방식으로 포인터를 사용하는 스킬들도 많기때문에 사실상 끝이 없다. 사실
+                            프로그래밍에 있어서는 필수적인 개념이다. 다른 객체지향언어를 놔두고 C를 익히는 이유 중 하나는 궁극적으로 포인터를 사용하여 쉽게 개발을
+                            하겠다는 의도다.
+                        </p>
+                        <p>
+                            포인터의 악명은 DOS 시절로 거슬러 올라간다. DOS 시절은 16비트 CPU의 한계로 포인터도 near 포인터(2바이트), far
+                            포인터(4바이트)로 나뉘어져 있었는데 이 시절에는 저 포인터들을 다 컨트롤하기가 쉽지 않았다(주소 계산 방식부터 다르다). tiny,
+                            small, medium, compact, large 등등의 메모리 모델이 있었고 각각의 모델마다 사용되는 포인터가 달랐다. data
+                            segment 가 한개뿐인 모델에는 near 포인터를 사용하였고, 그 외의 보다 큰 메모리 모델에는 far pointer 가 사용되었는데 당연히
+                            near pointer 가 오버헤드가 적기때문에 가급적이면 작은 메모리 모델을 골라서 사용하였다. 게다가 포인터가 깨지기라도 하면 아예 컴퓨터가
+                            맛가는 경우도 많았기에 디버깅 지옥이었다. 본격적으로 32비트 시대가 열리고 난 이후에 near, far 개념이 사라지고 메모리 관리를
+                            OS차원에서 어느정도 관리해주면서 포인터 지옥에서 상당히 해방되었음에도 불구하고 과거의 포인터의 악명이 그대로 이어져 오고 있는 것이다. 물론
+                            드라이버와 같은 Low-Level 프로그램을 짠다면 포인터 한 번 잘못 사용하는 것으로
+                            <a href="https://namu.wiki/w/%EB%B8%94%EB%A3%A8%EC%8A%A4%ED%81%AC%EB%A6%B0">블루스크린</a>을 심심찮게 맛볼 수 있다.
+                        </p>
+                        <p>
+                            참고: 이러한 블루스크린 문제는 최신 OS들이 나오고 고성능 CPU등이 보편화된 2018년 지금 OS레벨에서 관리가 되고 있다. 즉 예전처럼
+                            포인터 오류로 시스템이 셧다운되는 상황은 발생하지 않는다. 프로그램이 실제 메모리 공간에서 동작하는 것이 아닌 가상 메모리 공간에서 동작하기
+                            때문에 프로그램이 잘못된 메모리 접근을 할 경우, 하드웨어에서 운영체제의 커널에 있는 잘못된 메모리 접근을 처리하는 예외 루틴을 동작시키기
+                            때문이다.
+                        </p>
+                        <p>
+                            포인터는 C에 입문하는 대학생들에게 필요이상의 심리적 부담을 안겨주어 시작하기도 전에 지레 겁부터 먹게 만드는 역효과를 가져왔다. 여기에
+                            교수들의 C언어에 대한 이해 부족과 잘못된 커리큘럼은 포인터를 더욱 큰 벽으로 느끼게 만들고 있다. 이 문제는 십여년이 흘렀어도 개선되지 않고
+                            결국 난이도가 좀 더 낮은 언어인
+                            <a href="java.html">자바</a>나 아예 난이도가 쉬운
+                            <a href="python.html">파이썬</a>으로 프로그래밍 교육 커리큘럼이 이동하는 추세다. 자바를 비롯한 현대 언어들은 포인터를 아예
+                            없애 메모리에 직접적인 접근을 막고 그 자리에 참조자를 넣어서 자동으로 관리를 한다. 자세한 건
+                            <a href="java.html">Java</a>
+                            항목 참조.
+                            <a href="python.html">파이썬</a>도 비슷한 상황이다.
+                        </p>
+                        <p>
+                            어렵다는 단점이 있지만
+                            <strong>포인터는 단순하면서도 강력한 도구</strong>임을 알 수 있다. 시스템 내부에서도 굉장히 많이 사용되며 크고 긴 문자열 값을 일일이 넘겨줄 필요 없이 포인터 하나만으로
+                            <strong>대체</strong>할 수 있으며
+                            <strong>알고리즘, 자료구조</strong>에도 많이 사용된다.
+                            <strong>배열이나 구조체 참조</strong>에도 포인터를 사용하게 된다. 결국 C의 포인터를 제대로 이해하지 않으면
+                            <a href="https://namu.wiki/w/%EC%86%8C%ED%94%84%ED%8A%B8%EC%9B%A8%EC%96%B4">소프트웨어</a>의 중요한 요소 중 하나인 메모리 관리 기법을 잘 다룰 수 없다.
+                        </p>
+                        <p>
+                            꼭 하기는 해야 하는 상황인데도 포인터가 너무나도 블랙홀처럼 느껴진다면 그냥
+                            <a href="https://namu.wiki/w/%EC%96%B4%EC%85%88%EB%B8%94%EB%A6%AC%EC%96%B4">어셈블리어</a>를
+                            아주 기본적인 부분만 어느정도 공부해보는 것이 낫다. C 언어에 비해 훨씬 직접적으로 메모리를 다루고 포인터 개념도 그와중에 많이
+                            사용하기때문에, 대충 사용법만 짚고 넘어가는 경우가 많은 C 언어 교재들에 비해 설명도 하드웨어와 더불어 훨씬 자세한 경우가 많고, 어셈블리어와
+                            어느정도 씨름하다보면 C 언어의 포인터는 그냥 저절로 이해가 된다. 어셈블리어까지 보는게 거부감이 들 수도 있겠지만, 고급기능들은 배제하고
+                            기본적인 부분으로 한정하면 사실 아주 단순하고 시간도 얼마 걸리지도 않는다. 어셈블리어를 보다보면 C 언어가 얼마나 하드웨어와 가까운 언어인지도
+                            실감이 날것이다.
+                        </p>
+                        <p>
+                            파이썬에서는 ctypes 모듈에서 포인터를 지원한다. C 자료형밖에 안 되지만 숫자, 문자열은 메모리 공유가 되지 않는 파이썬 특성상 필요하기도
+                            하다. 다만 멀티프로세싱에서는 불가능.
+                        </p>
+                        <p>
+                            C언어에서 포인터는 대체로 다음과 같은 목적으로 쓰인다.
+                        </p>
+                        <p>
+                            <div style="line-height:30px">
+                                <ul>
+                                    <li>
+                                        참조: 어떤 객체를 직접 복사해서 전달하는 것이 아니라, 그 객체의 주소값만을 취해 전달하거나 관리 및 처리.
+                                        <ul>
+                                            <li>함수에 매개변수를 전달할 때, 객체 크기가 클 경우에는 객체 전체를 복사하는 것보다는 포인터를 통해 전달하는 것이 효과적.</li>
+                                            <li>다른 객체와의 연결이 필요한 자료구조(연결리스트, 해쉬, 기타등등)의 경우에는 참조 기능이 반드시 요구됨. 프로그래밍 언어에 참조기능이
+                                                없다면, 배열에 자료들을 저장한 뒤 그 인덱스를 포인터처럼 사용하여야 함(한마디로, 배열의 인덱스로 참조 기능을 직접 구현).</li>
+                                            <li>역시 크기가 큰 객체 여러개에 대해 어떤 자료구조(배열, 연결리스트, 해쉬, 기타등등...)를 통해 관리할 때, 직접 복사해서 관리하는
+                                                것보다는 주소값만을 가지고 있다가 필요할 때마다 주소값을 통해 접근하는 것이 효과적</li>
+                                        </ul>
+                                    <li>
+                                        메모리에 대한 직접 접근 및 강제 형변환: 객체는 원래 서로 호환되는 타입으로만 변환될 수 있는데, 포인터를 이용하면 객체의 메모리 공간에 대해
+                                        직접 접근하여, 마치 다른 메모리 타입인 것처럼 다루거나 내부표현 그 자체를 건드릴 수 있음.
+                                    </li>
+                                    <ul>
+                                        <li>이에 대해서는 메모리 정렬 제한(memory alignment)이라는 개념에 대해 반드시 알고 있어야 안전하게 사용 가능함. CPU의
+                                            구조를 모르면 예상하기 힘든 부분이기에, 잘 모르는 경우가 의외로 많다. (널리 쓰이는 인텔CPU가 정렬제한에 상당히 느슨한 것도 그 이유중
+                                            하나이다.)</li>
+                                        <li>char형은 1byte(C언어에선 반드시 8bit는 아님) 크기라는 그 특성상 모든 메모리 정렬 제한으로부터 자유로우며, 따라서 포인터
+                                            주소값을 char *형으로 형변환한 뒤 그 주소값을 통해 메모리 공간에 접근하면 직접 메모리 공간을 byte 단위로 읽거나 쓸 수 있음. 이는
+                                            구조체 등의 거대한 객체를 복사할 때도 이용되는 테크닉.</li>
+                                        <li>정렬 제한이나 내부 표현에만 주의한다면, 큰 크기의 정수나 구조체 등의 어떤 거대한 객체를 해당 아키텍처에서 가장 효율적인 크기(보통은
+                                            int형)로 쪼개어 접근하거나 처리할 수 있음.</li>
+                                        <li>signed integer 형이나 float형, 혹은 UTF-32등의 고정길이 문자형과 같이 자기 고유의 내부 표현을 갖는 개체들에 대해
+                                            마치 unsigned integer형(가장 널리 쓰이는게 unsigned char형)인 것처럼 접근하여, 비트연산 등을 통해 그 안의
+                                            내부표현이나 각 비트를 직접 조작할 수 있음.</li>
+                                    </ul>
+                            </ul>
+                        </div>
+                    </p>
+                    <p>
+                        참조가 상당히 추상적이고 프로그래밍 언어들이 비교적 보편적으로 지원하는 개념이라면, 메모리에 대한 직접 접근 및 강제 형변환은 하드웨어에 직접
+                        맞닿아 있으면서 한편으로는 다른 프로그래밍 언어에는 잘 지원하지 않거나 혹은 되도록 쓰지 않도록 강제하는 기능이다. 전자 쪽은 비교적 쉬운
+                        편이고(대신 이를 응용한 자료구조 및 알고리즘이 머리터짐), 후자 쪽은 하드웨어에 대한 어느 정도의 지식이 필요하기에 비교적 어려운 편이다.
+                        C언어 프로그래머들이 어렵다고 과장하면서 신성시하는 부분도 후자 쪽.
+                    </p>
+                    <p>
+                        보통의 C언어 입문서에서는 주로 참조 쪽에 집중해서 설명하기에, 입문서의 포인터 부분만 열심히 들여다 본다고 해도 어려운 부분을 이해하는 데에는
+                        큰 도움이 되지 못한다. 이런 경우에는 컴퓨터 구조를 따로 공부하거나 C언어의 다른 부분을 추가적으로 더 공부하는 것이 바람직하다. 이와 관련된
+                        주요 주제들은 다음과 같으며, 하나같이 어렵고 그 양도 방대한 편이다.
+                    </p>
+                    <p>
+                        <div style="line-height:30px">
+                            <ul>
+                                <li>C언어의 타입 시스템과 암묵적인 형변환</li>
+                                <li>주요 객체의 내부 표현 방식</li>
+                                <li>비트 연산</li>
+                                <li>C언어 특유의 문자열과 배열과 포인터의 혼용</li>
+                                <li>C언어의 복잡한 선언과 수식을 읽는 방법</li>
+                                <li>하드웨어의 메모리 정렬(memory alignment)</li>
+                                <li>객체의 기억수명(storage duration)</li>
+                                <li>컴퓨터 구조 전반</li>
+                            </ul>
+                        </div>
+                    </p>
+                    <p>
+                        많은 사람들이 C언어를 마치 어셈블리와 같이 하드웨어에 직접 맞닿아 있다고 착각하지만, C언어도 나름 추상화가 이루어진 고급 언어이고, 컴파일
+                        과정에서 최적화를 위해 프로그래머의 의도를 코드와는 다른 방식으로 구현하는 경우가 있다(loop unrolling과 같이 동일한 결과를 다른
+                        방식으로 얻을 수 있다). 따라서 그 코드는 추상적 레벨에서 효과적으로 동작하도록 작성하는 것이 바람직하다. 입문서에서 참조 쪽에 집중해서
+                        설명하는 것도 이 때문이다. 컴퓨터의 성능이 절대적으로 부족하고 최적화가 시원찮았던 과거의 전통 때문에 C언어의 문화는 한 땀 한 땀 정성들여
+                        저수준의 테크닉을 사용하는 것에 집착하는데, CPU의 구조가 복잡해져서 프로그래머보다 컴파일러가 CPU를 더 잘 이해하는 지금에 와서는 오히려
+                        역효과를 부를 수 있으므로 추상적인 동작에 더 집중하는 것이 현명한 방식이다.
+                    </p>
+                    <p>
+                        단, OS의 커널 레벨 코드나, 가전제품이나 간단한 장치 제어용 모듈을 설계하는 임베디드 프로그래밍 분야에서는 저수준의 테크닉이 여전히
+                        절대적으로 중요하다.
+                    </p>
+                    <div id="s1-1">
+                        <br>
+                        <strong class="Sname">
+                            <a href="#main">&nbsp;&nbsp;1.1</a>
+                            주요 오개념: 배열과 포인터 사이의 관계</strong><br>
+                        <hr>
+                        <p>
+                            굳이 이 항목이 따로 분리된 이유는, 배열과 포인터 사이의 관계를 올바르게 이해하는 것이 포인터를 이해하는 데 있어 큰 비중을 차지하며,
+                            한편으로 포인터 상수라는 부적절한 설명이 C언어 프로그래머들에게 널리 퍼져있기 때문이다.
+                        </p>
+                        <p>
+                            포인터 상수의 개념이 가지는 문제점은 다음과 같다. 우선, 실제하지 않는 존재인 포인터 상수를 실제하는 것처럼 받아들이게 된다. 또한 객체를
+                            이해하는데 필요한 어떤 일관적인 개념의 틀을 망가뜨린다. 배열 또한 다른 객체들과 마찬가지로, 메모리 공간을 연속적으로 차지하는 어떤 자료
+                            덩어리로서의 성질을 갖는데, 이를 마치 이름표와 덩어리가 분리된 특수한 형태로 잘못 받아들이게 된다. C언어의 다양한 수식(expression)
+                            내에서 올바로 수식을 해석하는 능력을 떨어트림은 물론이다. 이는 단지 포인터를 사용할 때 뿐만 아니라, 수식과 타입 시스템 전체의 개념을 올바로
+                            이해하는 데에도 악영향을 미친다. 마지막으로, & 연산자의 피연산자나 sizeof 연산자의 피연산자로 쓰일 때와 같은 예외상황에 대해 일관되게
+                            잘 설명하지 못한다.
+                        </p>
+                        <p>
+                            배열과 포인터 사이에 성립하는 정확한 규칙은 다음과 같다.
+                        </p>
+                        <p>
+                            <div class="specialBox">
+                                C99 6.3.2.1 p3.<br>
+                                Except when it is the operand of the sizeof operator or the unary & operator, or
+                                is a string literal used to initialize an array, an expression that has type
+                                "array of type" is converted to an expression with type "pointer to type" that
+                                points to the initial element of the array object and is not an lvalue.
+                            </div>
+                        </p>
+                        <p>
+                            배열 타입을 갖는 수식(배열 이름 또한 여기에 해당한다)은 자동 변환되어, 그 배열의 첫번째 원소를 가리키는 포인터 주소값을 반환한다. 이
+                            결과값은 lvalue(메모리상에 주소를 가진 =의 좌변값)가 아니다. 여기에는 아래의 3가지 예외상황이 존재한다.
+                        </p>
+                        <p>
+                            <ul style="line-height:30px">
+                                <li>예외1 : sizeof 연산자의 피연산자로 쓰인 경우. 예) sizeof(arr)</li>
+                                <li>예외2 : & 연산자의 피연산자로 쓰인 경우. 예) &arr</li>
+                                <li>예외3 : char형 배열의 초기화에 쓰이는 문자열 상수인 경우. 예) char str[] = "hello";</li>
+                                <ul>
+                                    <li>해설 : 문자열 상수(string literal)도 배열이므로, 해당 규칙의 적용을 받아 배열처럼 사용이 가능하다.
+                                        "abcdefg"[3] 라던가 3["abcdefg"] 라던가... char *str = "hello"; 의 경우에도 "hello"의 첫번째
+                                        원소를 가리키는 주소값이 대입된다. 그러나 char str[] = "hello"; 와 같이 문자형 배열을 초기화할 때에는 이 예외3이 적용되어
+                                        위에서 설명한 변환 규칙이 적용되지 않는다.</li>
+                                    <li>이 세번째 예외가 의미하는 바는, 문자형 배열을 초기화할 때는 반드시 문자열 상수로만 해야 된다는 뜻이다. 이 세번째 예외항목이
+                                        없다면(그리고 다른 예외규칙이 따로 없다면) char *s1="hello"; char s2[]=s1; 과 같은 코드가 사용 가능해진다.</li>
+                                </ul>
+                        </ul>
+                    </p>
+                    <p>
+                        위에서 말하는 수식은 일반적 의미의 수식이 아니라 C언어 문법의 수식(expression)을 의미한다.
+                    </p>
+                    <p>
+                        배열 참조 연산자 arr[0]은 *(arr + 0)과 동치이며, 후자의 수식은 위의 규칙을 적용받아 해석된다. 배열의 첫번째 원소의 주소값이 곧
+                        배열 자체의 주소값이고, 배열 이름은 그 배열의 첫번째 원소를 나타내므로 arr은 arr[] 배열과 배열 내 첫번째 원소를 가리키는 포인터
+                        주소값이 된다. 여기에 1을 더하면(arr + 1) 두번째 원소를 가리키는 포인터 주소값이 되며, 참조 연산자 * 를 씌우면(*(arr +
+                        1)) 배열의 두번째 원소 그 자체가 된다.
+                    </p>
+                    <p>
+                        다차원 배열에서도 위와 같은 규칙이 적용되어 값이 평가된다. int형 이차원 배열 arr의 한 원소를 나타내는 식 arr[3][5]은 다음과
+                        같은 과정을 거쳐 평가된다; 먼저 배열 참조 연산자 [3]에 의해 arr[3]이 *(arr + 3)이 된다. 이후 두 번째 배열 참조 연산자
+                        [5]에 의해 arr[3][5], 즉 *(arr + 3)[5]가 *(*(arr + 3) + 5)로 바뀐다. 이후 배열 이름 arr가 이 배열의
+                        첫 번째 원소를 가리키는 포인터 주소값을 반환한다. arr는 배열을 원소로 하는 이차원 배열이므로, *(arr + 3) 또한 이차원 배열의
+                        4번째 원소인 일차원 배열을 의미한다. 때문에 이 또한 그 일차원 배열의 첫 번째 원소를 가리키는 포인터 주소값을 반환한다. 마지막으로
+                        *(*(arr + 3) + 5)에서 그 일차원 배열의 6번째 원소가 반환된다.
+                    </p>
+                    <p>
+                        arr1 = arr2; 와 같이 배열끼리의 복사가 되지 않는 것도 이 규칙 때문이다. 이 규칙 때문에 대입 연산자 =의 좌변이 lvalue가
+                        아니게 된다.
+                    </p>
+                    <p>
+                        함수의 매개변수 선언부를 제외한 변수 선언부에서는 위의 규칙은 적용되지 않는다. 오로지 수식에서만 적용되는 규칙이다. 즉 포인터로 선언하면
+                        포인터가 되고, 배열로 선언하면 배열이 된다. 함수의 매개변수 선언부에서는 배열이 포인터로 자동 변환되는 비슷한 규칙이 적용된다.
+                    </p>
+                    <p>
+                        <div class="specialBox">
+                            C99 6.7.5.3 p7<br>
+                            A declaration of a parameter as "array of type" shall be adjusted to "qualified
+                            pointer to type", where the type qualifiers (if any) are those specified within
+                            the [ and ] of the array type derivation.
+                        </div>
+                    </p>
+                    <p>
+                        함수 선언 시 매개변수로 배열 타입이 쓰일 경우, 이것은 qualified pointer 타입으로 변환된다. 이때 붙이는 type
+                        qualifier(const, restrict, volatile를 의미)는 [ ] 안에 적힌 것을 사용한다. (이때 static 도 [ ] 안에
+                        들어갈 수 있지만 이건 또 다른 주제라 생략한다.)
+                    </p>
+                    <p>
+                        <div class="normalBox">
+                            <strong style="color:blue">int</strong>
+                            f1(<strong style="color:blue">int</strong>
+                            arr[<strong style="color:orange">3</strong>]);<br>
+                            <strong style="color:blue">int</strong>
+                            f2(<strong style="color:blue">int</strong>
+                            *arr);
+                            <strong>// 위의 함수 f1과와 같다.</strong><br><br>
+                            <strong style="color:blue">int</strong>
+                            f3(<strong style="color:blue">int</strong>
+                            arr[const
+                            <strong style="color:orange">3</strong>]);<br>
+                            <strong style="color:blue">int</strong>
+                            f4(<strong style="color:blue">int</strong>
+                            * const arr);
+                            <strong>// 위의 함수 f3과 같다.</strong>
+                        </div>
+                    </p>
+                    <p>
+                        다차원 배열의 경우에는 연쇄적으로 적용되지 않고 딱 한번만 적용된다.
+                    </p>
+                    <p>
+                        <div class="normalBox">
+                            <strong style="color:blue">int</strong>
+                            f5(<strong style="color:blue">int</strong>
+                            arr[<strong style="color:orange">3</strong>][<strong style="color:orange">4</strong>][<strong style="color:orange">5</strong>]);<br>
+                            <strong style="color:blue">int</strong>
+                            f6(<strong style="color:blue">int</strong>
+                            (*arr)[<strong style="color:orange">4</strong>][<strong style="color:orange">5</strong>]);
+                            <i style="color:grey">// 위의 함수 f5와 같다.</i><br>
+                            <strong style="color:blue">int</strong>
+                            f7(<strong style="color:blue">int</strong>
+                            (**arr)[<strong style="color:orange">5</strong>]);
+                            <i style="color:grey">// 위의 함수 f6, f7과 다르다.</i>
+                        </div>
+                    </p>
+                    <p>
+                        2차원 배열도 마찬가지이다.
+                    </p>
+                    <p>
+                        <div class="normalBox">
+                            <strong style="color:blue">int</strong>
+                            f8(<strong style="color:blue">int</strong>
+                            arr[<strong style="color:orange">6</strong>][<strong style="color:orange">7</strong>]);<br>
+                            <strong style="color:blue">int</strong>
+                            f9(<strong style="color:blue">int</strong>
+                            (*arr)[<strong style="color:orange">7</strong>]);
+                            <i style="color:grey">// 위의 함수 f8과 같다.</i><br>
+                            <strong style="color:blue">int</strong>
+                            f10(<strong style="color:blue">int</strong>
+                            (**arr));
+                            <i style="color:grey">// 위의 함수 f8, f9와 다르다.</i>
+                        </div>
+                    </p>
+                    <p>
+                        이 규칙으로 인해서, C에서는 함수의 매개변수로 배열을 직접 복사해서 넘길 수 없다. 다르게 표현하자면, 함수의 매개변수로 배열을 사용할 수
+                        없다. 배열보다 훨씬 더 복잡한 객체인 구조체도 함수의 매개변수로 사용할 수 있는 것을 고려하면, 이 규칙은 상당히 독특하다고 할 수 있다.
+                    </p>
+                    <p>
+                        함수 호출과 관련하여, 배열 타입이 포인터 주소값으로 변환되는 규칙과 유사한, 기묘한 규칙이 한가지 더 존재한다. C언어에서 모든 함수 타입은
+                        함수 그 자체에 대한 포인터 주소값으로 자동 변환된다(배열의 경우와 비슷하게, 이 규칙의 예외는 함수타입이 sizeof 연산자 또는 & 연산자의
+                        피연산자로 쓰일 경우이다). 그리고 함수 호출은 함수 타입이 아니라 함수에 대한 포인터 주소값을 통해 이루어진다.
+                    </p>
+                    <p>
+                        <div class="specialBox">
+                            C99 6.3.2.1 p4<br>
+                            A function designator is an expression that has function type. Except when it is
+                            the operand of the sizeof operator or the unary & operator, a function
+                            designator with type ‘‘function returning type’’ is converted to an expression
+                            that has type ‘‘pointer to function returning type’’.
+                        </div>
+                    </p>
+                    <p>
+                        이에 대해서는 예시를 직접 보는 것이 더 이해가 빠를 것이다.
+                    </p>
+                    <p>
+                        <div class="normalBox">
+                            <strong style="color:blue">int</strong>
+                            f(<strong style="color:blue">void</strong>) {
+                            <strong style="color:blue">return</strong>
+                            <strong style="color:orange;">0</strong>; }<br><br>
+
+                            <strong style="color:blue">int</strong>
+                            (*fp)(<strong style="color:blue">void</strong>);<br><br>
+
+                            fp = &f;<br>
+                            <i style="color:grey; font:italic">// 함수 포인터 변수 fp에 함수 f의 주소를 대입한다.</i><br><br>
+
+                            fp = f;<br>
+                            <i style="color:grey; font:italic">// 함수 타입은 함수 그 자체에 대한 포인터 주소값으로 자동 변환되므로, 이것 또한 올바른 수식이다.</i><br>
+
+                            f();<br>
+                            <i style="color:grey; font:italic">// 함수 지시자(function designator) f를 통해 함수를 호출한다. 좀 더 정확한 동작은 다음과 같다.</i><br>
+                            <i style="color:grey; font:italic">// 함수 지시자(function designator) f는 함수 f를 가리키는 포인터 주소값이 되고,</i><br>
+                            <i style="color:grey; font:italic">// 이 주소값을 통해 함수를 호출한다.</i><br><br>
+
+                            (*fp)();<br>
+                            <i style="color:grey; font:italic">// 함수 포인터 fp가 가리키는 함수 f를 호출한다.</i><br><br>
+
+                            fp();<br>
+                            <i style="color:grey; font:italic">// 함수 포인터 fp가 가리키는 함수 f를 호출한다.</i><br>
+                            <i style="color:grey; font:italic">// 함수에 대한 포인터 주소값을 통해 호출이 이루어지므로</i><br>
+                            <i style="color:grey; font:italic">// 함수 포인터에 참조 연산자를 생략하여도 정상적으로 동작하며 올바른 수식이다.</i><br><br>
+
+                            (***************fp)();<br>
+                            <i style="color:grey; font:italic">// 함수 포인터에 참조 연산자를 적용하면 함수 타입이 되는데,</i><br>
+                            <i style="color:grey; font:italic">// 함수 타입은 다시 함수 포인터 값으로 자동 변환되고, 여기에 다시 참조 연산자를 적용하여...</i><br>
+                            <i style="color:grey; font:italic">// 컴파일러가 허용하는 한도 내에서 *를 붙여도 여전히 함수 포인터 타입이 되고,</i><br>
+                            <i style="color:grey; font:italic">// 이걸 통해 함수가 호출된다.</i>
+                        </div>
+                    </p>
+                </div>
+                <div id="s1-2">
+                    <br>
+                    <strong class="Sname">
+                        <a href="#main">&nbsp;&nbsp;1.2</a>
+                        주요 오개념: 포인터의 크기 및 상호 변환 관계</strong><br>
+                    <hr>
+                    <p>
+                        포인터를 처음 배울 때는 이것을 '단일한 크기의 정수형 주소값'이라는 개념으로 지나치게 단순화시켜 받아들이기가 쉽다. 그래서 포인터를 어느정도
+                        배운 다음에는 그 강력함에 취해 형변환(Type casting)을 사용한 포인터 테크닉을 남발하기 일수이다. 하지만 실제로는 포인터 개념 안에
+                        상당히 복잡한 여러 고려사항들이 존재하고 있기에, 특정 아키텍처의 사례만을 가지고 단순화시켜 생각해서는 위험한 함정에 빠지기 쉽다.
+                    </p>
+                    <p>
+                        우리가 주로 접하게 되는 컴파일러와 컴퓨터 아키텍처들이 그러하기에 포인터 크기가 모두 동일하다고 착각하기가 쉬운데,
+                        <strong>C언어에서 포인터의 크기는 모두 같을 필요가 없다.</strong>
+                        우리가 주로 사용하는 컴파일러나 아키텍처들이 정렬제한에 상대적으로 느슨한데다가 동일한 크기의 포인터를 사용하기에 잘 느끼지 못하는 부분이지만,
+                        간혹 임베디드나 오래된 아키텍처에서는 이러한 부분들이 문제가 될 수 있다. 다음의 링크글에 이와 관련된 질문과 답들이 있다.
+                    </p>
+                    <p>
+                        <a style="color:green" href="https://kldp.org/node/39915">포인터가 4바이트인 이유는?</a>
+                    </p>
+                    <p>
+                        한편, 포인터가 반드시 실제 메모리 공간을 가리킬 필요도 없고, 포인터를 정수형으로 변환한 값이 포인터 안에 저장된 이진 데이터와 동일한 값일
+                        필요도 없다. C언어가 요구하는 것은 포인터가 정수형으로 변환될 수 있고, 다시 원래의 포인터형으로 돌아갈 수 있다는 것 뿐이다. 예를 들자면,
+                        다음과 같은 식으로 논리 주소였던 포인터가 정수형으로 변환될 때에만 물리 주소에 배정되는 구조 또한 가능하다.
+                    </p>
+                    <p>
+                        <a style="color:green" href="http://rosaec.snu.ac.kr/meet/file/20150127k.pdf">정수와 포인터간 변환을 지원하는 C/C++ 메모리 모델</a>
+                    </p>
+                    <p>
+                        이와 관련해서 고정관념을 깨는 예를 하나 들자면, C 표준에서는 널 포인터 상수로 정수 0을 사용하지만, 그렇다고 널 포인터의 내부 표현(기계
+                        내에서 실제로 메모리 상에 저장되는 값)이 모든 비트가 0일 필요는 없다. 좀 더 자세히 설명하자면, 언어적으로는 정수 상수 0을 널 포인터
+                        상수로 사용하고, 널 포인터와 정수 0을 비교하면 '같다'라고 취급되지만, 포인터 변수 p에 대해 p = 0과 같이 0을 대입했을 때, 포인터
+                        변수 p의 실제 메모리 상의 내부표현이 00000000 00000000 00000000 00000000(32비트 포인터의 경우)가 아닐수도
+                        있다는 것이다. null pointer 안에는 OS 또는 하드웨어가 사용하는 정보들이 담길 수도 있고, 혹은 0번지가 아닌 특정 메모리 주소를
+                        가리킬 수도 있다. 따라서 포인터 변수에 널 포인터를 대입할 때 대입 연산자를 이용하지 않고 포인터 변환이나 memset 함수를 통해 직접 0의
+                        비트열을 기록하거나 가변 인자 함수의 매개변수로 형변환 연산자 없이 바로 정수 0을 널포인터 대신 넘겨버릴 경우, 아주 특수한 환경에서는 문제가
+                        생길 수도 있다(물론 이는 일반적으로 찾아보기 힘든 드문 경우이다). 자세한 내용은 다음 링크를 참조하라.
+                    </p>
+                    <p>
+                        <a
+                            style="color:green"
+                            href="https://www.joinc.co.kr/w/Site/FAQ/CfaqHTML/node7.html">C FAQ의 Null Pointer 항목</a>
+                        <a style="color:green" href="https://kldp.org/node/28150">NULL과 0과 '0' 의 차이점...</a>
+                    </p>
+                    <p>
+                        C가 다른 언어들에 비해 하드웨어 친화적이기 때문에 C를 배우는 사람들은 C와 실제 하드웨어에서의 동작을 1:1로 대응하여 생각하는 경향이
+                        있는데, C도 추상화된 고급 언어(High-level language)이고, 따라서 C언어 코드와 기계어 번역 결과물이 일대일로 대응되지 않음을
+                        (컴파일러가 프로그래머의 의도에 맞게 최적화를 거칠 수 있음을) 염두에 둘 필요가 있다.
+                    </p>
+                    <p>
+                        포인터의 크기 및 상호 변환 관계에 대한 일련의 규칙들은 다음과 같다.
+                    </p>
+                    <p>
+                        <div style="line-height:30px">
+                            <ul>
+                                <li>모든 포인터형은 void *형으로, 변환될 수 있으며, 그것을 원래의 포인터형으로 변환했을 때 동일한 값이어야 한다.</li>
+                                <li>한정자(qualifier)가 붙지 않은 포인터형은 한정자가 붙은 포인터형과 서로 호환/변환되며, 붙지 않은 것과 붙은 것은 비교했을 때
+                                    같다고 취급한다.</li>
+                                <li>null pointer는 어떤 타입의 포인터이든 동일하게 취급된다. 즉 비교했을 때 서로 같다고 판정한다.</li>
+                                <ul>
+                                    <li>어떤 포인터값이 다른 타입의 포인터값으로 변환될 수 있긴 하나, 그 결과값이 올바르게 정렬되어 있지 않다면(correctly
+                                        aligned) 그 동작은 정의되어 있지 않다.</li>
+                                    <li>이 '올바르게 정렬됨'의 성질은 추이적(transitive)이다. (A가 B로 변할 수 있고 B가 C로 변할 수 있으면 A는 C로 변할
+                                        수 있다. 실질적으로는 주소값의 정렬제한 단위가 약수와 배수 관계가 되는거라 자명하다.)</li>
+                                    <li>표준 규칙을 엄밀하게 적용하자면
+                                        <strong>uint8_t*, int8_t*로의 캐스팅도 버그가 아니라는 보장이 없다.</strong>
+                                        절대다수의 컴파일러에서 uint8_t와 int8_t를 unsigned char, signed char로 typedef해서 문제가 안생길 뿐이다.
+                                        표준에서 보장하는게 아니다. 따라서 만약 메모리에 대한 직접 접근이 필요하다면 int8_t*이나 uint8_t*보다는 char형과 char*형의
+                                        1byte 크기를 갖는 메모리 접근 기본 단위로서의 특성에 의존하거나 memcpy등의 내장함수를 이용함이 바람직하다.</li>
+                                </ul>
+                                <li>모든 함수의 포인터는 상호 변환될 수 있다. 그러나 잘못된 타입의 포인터로 함수를 호출했을때의 동작은 정의되어 있지 않다.</li>
+                                <li>void*는 char*과 같은 정렬제한과 내부표현을 갖는다.</li>
+                                <li>한정자에 상관없이, 서로 호환되는 데이터형들(compatible types)끼리는 동일한 정렬제한과 내부표현을 갖는다.</li>
+                                <li>모든 구조체에 대한 포인터들끼리는 동일한 정렬제한과 내부표현을 갖는다.</li>
+                                <li>모든 공용체에 대한 포인터들끼리는 동일한 정렬제한과 내부표현을 갖는다.</li>
+                                <li>그 외의 포인터들끼리는 동일한 정렬제한과 내부표현을 가질 필요가 없다.</li>
+                            </ul>
+                        </p>
+                        <p>
+                            위의 내용들에 따라 다음과 같은 해석이 가능하다.
+                        </p>
+                        <p>
+                            <ul>
+                                <li>포인터의 크기가 int형 또는 해당 아키텍처의 최적 word의 크기와 같을 필요는 없다. int형보다 더 크거나 더 작을 수 있고,
+                                    여러가지 크기를 가질 수도 있다.</li>
+                                <li>void*형과 char*형은 다른 포인터형이 가진 정보를 모두 담을 수 있을 정도로 충분히 크고, 1byte 단위로 주소값을 기록할 수
+                                    있어야 한다.</li>
+                                <ul>
+                                    <li>void*형은 범용 포인터로서 사용이 가능하다. 그리고 아마, char*형도. 모든 포인터 타입은 void *타입으로, 그리고 다시
+                                        void *타입에서 원래의 타입으로 되돌아갈 수 있다.</li>
+                                    <li>그러나 void *형에 저장된 임의의 주소값이 항상 특정 포인터형으로 변환될 수 있는 것은 아니다. 해당 주소값의 객체에 접근하는 행위
+                                        뿐만 아니라 주소값을 변환하는 행위 자체도 문제가 될 수 있다.</li>
+                                    <li>실질적으로, char*형은 정렬제한에 자유롭게 모든 메모리 주소를 가리키는 데 사용할 수 있다.</li>
+                                    <ul>
+                                        <li>이것이 읽기와 쓰기 동작의 성공을 항상 보장하는 것은 아니겠지만, 문제가 되지 않는 경우라면 모든 자료형에 대해 char*형을 통해
+                                            1바이트 단위로 접근할 수 있다고 기대할 수 있다.</li>
+                                    </ul>
+                            </ul>
+                            <li>포인터 타입들끼리는 함부로 변환하는 것이 위험하다. 단 허용되는 몇몇 경우가 있다.</li>
+                            <li>서로 호환되는 포인터형들끼리는 변환하는 것이 안전하다. (같은 크기에, 같은 내부표현을 갖는다)</li>
+                            <li>구조체 포인터 타입들끼리는 변환하는 것이 안전하다. (같은 크기에, 같은 내부표현을 갖는다)</li>
+                            <li>따라서 구조체 포인터를 통해 객체지향을 흉내낼 수 있다.</li>
+                            <li>공용체 포인터 타입들끼리는 변환하는 것이 안전하다. (같은 크기에, 같은 내부표현을 갖는다)</li>
+                            <li>함수 포인터 타입들끼리는 변환하는 것이 안전하다. 단 그걸 잘못된 타입으로 호출하는건 위험하다.</li>
+                            <ul>
+                                <li>어떤 함수 포인터 타입이든 범용 함수 포인터로서 사용하는 것이 가능하다. 단, 호출하지 않는다는 가정 하에서만.</li>
+                                <ul>
+                                    <li>이걸 이용해서 C언어에서 가상함수 구현이 가능해진다.</li>
+                                </ul>
+                        </ul>
+                        <li>함수 포인터와 void* 포인터는 C 표준상으로는 호환되지 않는다.</li>
+                    </ul>
+                </div>
+            </p>
+            <p>
+                포인터의 변환에 위와 같은 제한이 걸리는 이유를 이해하기 위한 핵심 개념 중 하나는 memory alignment이다. 어떤 아키텍처에서는
+                각각의 데이터형들에 대해 그 메모리상의 주소값이 특정 N의 배수이기를 요구한다. 이를 염두에 두지 않고 함부로 형변환을 했다간 CPU 수준에서
+                bus error가 발생할 수 있다.
+            </p>
+            <p>
+                이를 이해하기 위한 또 다른 중요한 개념은 Trap representation이다. 간단하게 말해서, 특정 범위의 표현값은 사용하는 것만으로도
+                문제를 일으킬 수 있다.
+            </p>
+            <p>
+                C++에서는 가상 멤버 함수에 대한 포인터로 인해 더더욱 포인터 크기가 달라질 수 있다.
+                <a
+                    style="color:green"
+                    href="https://blogs.msdn.microsoft.com/oldnewthing/20040209-00/?p=40713">Pointers to member functions are very strange animals</a>
+            </p>
+            <p>
+                단, POSIX 2008에서는 위와는 다르게 함수 포인터와 일반 포인터가 서로 호환되기를 요구하며(dllsym()과 같은 경우가 그러하다), 더
+                나아가 모든 포인터의 크기가 서로 같기를 요구한다.
+            </p>
+            <p>
+                위와 같은 내용들로 인해 포인터 사이의 형변환을 사용할 때는 이것이 허용되는 경우인지를 먼저 따져볼 필요가 있다. C++에서의 경우와 마찬가지로
+                기본적으로 포인터에 대한 모든 명시적인 형변환은 evil이라고 가정하고, 허용되는 경우만을 따져 필요한 경우에만 활용하는 것이 바람직하다.
+            </p>
+        </div>
+        <div id="s1-3">
+            <br>
+            <strong class="Sname">
+                <a href="#main">&nbsp;&nbsp;1.3</a>
+                주요 오개념: 스택(Stack)과 힙(Heap)</strong><br>
+            <hr>
+            <p>
+                C에서 메모리 모델을 설명할 때는 스택과 힙의 그림을 그리며 설명하는 것이 보통이지만, C 표준문서(C11의 Final Draft인 n1570)
+                자체에는 stack과 heap라는 단어 자체가 아예 존재하지 않는다. 당연히 '지역변수는 stack에, malloc의 결과값은 heap에
+                위치한다'라는 널리 알려진 규칙도 없고 함수 호출을 stack을 통해 구현하라고 지시하지 않는다. 이는 표준 문서가 그냥 놓고 보면 이상하다고
+                생각될 정도로 수많은 cpu에 대응할 수 있도록 쓰여져있기 때문이며, C 자체도 CPU와 OS의 특성에 크게 의존하는 런타임 언어이기 때문일 뿐
+                스택과 힙을 설명하는 것이 틀린 것이라고 하기는 어렵다.
+            </p>
+            <p>
+                다만 포인터나 메모리를 설명할 때 우선되어야 할 것은 식별자의 통용 범위(Scope of identifiers)와 객체의 지속시간(Storage
+                duration of objects)인데, 일단 스택과 힙 그림부터 그리는 것은 순서가 뒤바뀐 설명법이라고 할 수 있다. 여기서는
+                식별자(identifier)와 객체(object), 통용 범위(Scope)와 지속 시간(Storage Duration)의 차이를 구분해서
+                이해해야 한다. 예를 들어 static이 아닌 함수 내의 지역변수를 함수 외부에서 접근하면 안되는 이유는 함수가 종료되면서 해당 객체의
+                수명(lifetime)이 끝나기 때문이다.
+            </p>
+            <p>
+                이 부분은 교재에서 흔히 '변수 범위와 생명주기' 같은 주제로 다뤄지는데 정말 중요한 부분임에도 불구하고 대부분 그저 명세를 나열하기만 할 뿐
+                이것들이 어떤 효과를 일으키는지까지 제대로 설명하는 교재나 강사를 찾아보기란 정말 어렵다. 그렇다고 스택과 힙을 거론하는 쪽이 잘못되었다는
+                얘기는 더더욱 아니다. 어차피 알아야 할 부분이기도 하며 평범한 프로그래밍 입문자가 스택과 힙을 사용하지 않는 C 컴파일러를 사용할 일도 정말
+                드물기 때문이다. 다만 포인터가 왜 필요한지 이해하기가 어렵다면 스택과 힙은 잠시 제쳐두고 질문을 하거나 다른 교재를 찾거나 표준 문서를 보는
+                것이 이해에 도움이 될 수 있다.
+            </p>
+        </div>
+
+    </div>
+
+</div>
+
+</article>
+</nav>
+
+</body>
+
+</html>

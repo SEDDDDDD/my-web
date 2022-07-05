@@ -1,0 +1,51 @@
+.topName {
+    height:150px;
+    font-size:80px;
+    font-weight:bolder;
+    text-align: center;
+    font-family: 'Merriweather', serif;
+}
+
+.mainCenter {
+    display:flex;
+    margin-top:100px;
+    align-items: center;
+    cursor: pointer;
+}
+
+.midRight {
+    flex:33%;
+    align-content: center;
+    text-align: center;
+}
+
+.midCenter {
+    flex:33%;
+    border-left-width:0.1em;
+    border-left-style:solid;
+    border-left-color: rgb(99, 97, 97);
+    border-right-width:0.1em;
+    border-right-style:solid;
+    border-right-color: rgb(99, 97, 97);
+    align-content: center;
+    text-align: center;
+    
+}
+
+.imgJava {
+    width:150px;
+}
+
+.imgPython {
+    height:150px;
+}
+
+.imgC {
+    height:150px;
+}
+
+.midLeft {
+    flex:33%;
+    align-content: center;
+    text-align: center;
+}
